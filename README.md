@@ -1,12 +1,12 @@
 # CJ-Affiliate-Project
-Team name:Great Fantastic Team
+Team name: Great Fantastic Team
 
 Team members:
-  Joey ZHANG, 
-  Minliao Li, 
-  Zhuo Chen, 
-  Kyle Ng, 
-  Nathan Guan
+  Joey ZHANG (Lead),
+  Nathan Guan (Scribe),
+  Minliao Li,
+  Zhuo Chen,
+  Kyle Ng
 
 
 Trello: https://trello.com/b/rNy18nT7/lets-get-stuff-done
