@@ -1,7 +1,5 @@
 import static spark.Spark.port;
 import org.apache.log4j.Logger;
-import java.util.HashMap;
-import java.util.Map;
 import spark.ModelAndView;
 import spark.template.mustache.MustacheTemplateEngine;
 import static spark.Spark.get;
@@ -14,24 +12,30 @@ public class GreatFantasticProject {
     public static final String CLASSNAME="GauchoCourses";
     
     public static final Logger log = Logger.getLogger(GreatFantasticProject);
-
+    //Logger used to log bugs and such in terminal 
+    
     public static void main(String[] args) {
 
-    port(getHerokuAssignedPort());
-    //easy read in terminal to find port number
-    System.out.println("");
-    System.out.println("");
-    System.out.println("");
-    System.out.println("");
-    System.out.println("visit in browser: http://localhost:" + getHerokuAssignedPort());
-    System.out.println("");
-    System.out.println("");
-    System.out.println("");
-    System.out.println("");
-    
+        port(getHerokuAssignedPort());
         
-    // hello.mustache file is in resources/templates directory
-    get("/", (rq, rs) -> new ModelAndView(map, "mainpage.mustache"), new MustacheTemplateEngine());
+        //bunch of spaces so that it is easy to read in terminal to find port number
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("visit in browser: http://localhost:" + getHerokuAssignedPort());
+        LOGGER.log("PORT:" + getHerokuAssignedPort());
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        
+        //currently just main page and random page
+        //we will see if additional pages will be necessary in the future
+        // hello.mustache file is in resources/templates directory
+        get("/", (rq, rs) -> new ModelAndView(map, "mainpage.mustache"), new MustacheTemplateEngine());
+        
+        get("/page2", (rq, rs) -> new ModelAndView(map, "page2.mustache"), new MustacheTemplateEngine());
 
     }
     
@@ -40,8 +44,7 @@ public class GreatFantasticProject {
         if (processBuilder.environment().get("PORT") != null) {
             return Integer.parseInt(processBuilder.environment().get("PORT"));
         }
-        return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
+        //return default port if heroku-port isn't set (i.e. on localhost)
+        return 4567; 
     }
-
-    
 }
