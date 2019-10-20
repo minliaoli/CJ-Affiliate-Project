@@ -3,7 +3,7 @@
 	https://docs.google.com/document/d/1JSXZaajDS5krAPLlC5mD-4jPGZc2_zR7/edit
 10-17 Zhuo: modify Minliao Li's basic ideas
 
-10-1 Minliao Li: update user story:
+10-19 Minliao Li: update user story:
 	https://docs.google.com/document/d/1uzE9rKCmvBnEbq0sG4PgXLsuDxi8urZo/edit
 	and designer story (workflow):
 	https://docs.google.com/document/d/1WaINEeFsZmeWhSG9Al-rwVKj_UQQ-Yg3/edit
