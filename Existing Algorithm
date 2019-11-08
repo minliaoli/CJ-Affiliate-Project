@@ -11,6 +11,8 @@ https://aws.amazon.com/cn/sagemaker/?did=ft_card&trk=ft_card
 
 Amazon comprehend:
 https://us-east-2.console.aws.amazon.com/comprehend/v2/home?p=cmp&cp=bn&ad=c&region=us-east-2#welcome
-
+this obline plateform support key phrase extraction and is free for 12 month.
+Python documentation:
+https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/comprehend.html#Comprehend.Client.detect_key_phrases
 (I already created an account)
 
