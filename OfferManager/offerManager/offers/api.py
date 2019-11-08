@@ -2,7 +2,7 @@ from offers.models import Offers
 from rest_framework import viewsets, permissions
 from .serializers import OffersSerializer
 
-#Lead Viewset
+#Offer Viewset
 class OffersViewset(viewsets.ModelViewSet):
 	queryset = Offers.objects.all()
 	permission_classer = [
