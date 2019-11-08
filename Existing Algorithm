@@ -3,3 +3,14 @@ https://pypi.org/project/rake-nltk/
 https://www.airpair.com/nlp/keyword-extraction-tutorial
 
 https://towardsdatascience.com/textrank-for-keyword-extraction-by-python-c0bae21bcec0
+
+some existing AI platform we can consider:
+
+Amazon SageMaker:
+https://aws.amazon.com/cn/sagemaker/?did=ft_card&trk=ft_card
+
+Amazon comprehend:
+https://us-east-2.console.aws.amazon.com/comprehend/v2/home?p=cmp&cp=bn&ad=c&region=us-east-2#welcome
+
+(I already created an account)
+
