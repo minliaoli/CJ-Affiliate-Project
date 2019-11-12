@@ -5,16 +5,16 @@ const initialState = {
 }
 
 export default function(state = initialState, action){
-    switch(action){
+    switch(action.type){
         case GET_OFFERS:
-            return{
+            return { 
                 ...state,
                 offers: action.payload
             };
         case DELETE_OFFERS:
-            return{
+            return { 
                 ...state,
-                offers: state.offers.filter(offer => offer.name !== action.payload)
+                offers: state.offers.filter(offer => offer.id !== action.payload)
             };
     default:
         return state;

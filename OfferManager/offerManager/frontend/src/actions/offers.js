@@ -13,9 +13,9 @@ export const getOffers = () => dispatch => {
         }).catch(err => console.log(err));
 };
 
-//DELETE OFFERs
-export const deleteOffers = (id) => dispatch => {
-    axios.get(`/api/offers/${id}/`)
+//DELETE OFFER
+export const deleteOffers = id => dispatch => {
+    axios.delete(`/api/offers/${id}/`)
         .then(res => {
             dispatch({
                 type: DELETE_OFFERS,
