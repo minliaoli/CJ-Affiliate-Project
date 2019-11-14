@@ -5,7 +5,10 @@ import { getOffers, deleteOffers } from '../../actions/offers';
 
 export class Offers extends Component {
   static propTypes = {
-      offers: PropTypes.array.isRequired
+      offers: PropTypes.array.isRequired,
+      getOffers: PropTypes.array.isRequired,
+      deleteOffers: PropTypes.array.isRequired
+
   };
 
   componentDidMount() {
@@ -15,7 +18,13 @@ export class Offers extends Component {
   render() {
       return (
         <Fragment>
-          <h2>Leads</h2>
+          <button
+            className="btn btn-danger btn-sm"
+          >
+            {" "}
+            Import
+          </button>
+          <h2>Offers</h2>
           <table className="table table-striped">
             <thead>
               <tr>
@@ -50,7 +59,7 @@ export class Offers extends Component {
       );
     }
   }
-  
+
 const mapStateToProps = state => ({
     offers: state.offers.offers
 });
