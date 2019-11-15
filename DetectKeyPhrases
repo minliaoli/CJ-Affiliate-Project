@@ -1,0 +1,17 @@
+request syntax:
+{
+   "LanguageCode": "string",
+   "Text": "string"
+}
+
+Reponse syntex:
+{
+   "KeyPhrases": [ 
+      { 
+         "BeginOffset": number,
+         "EndOffset": number,
+         "Score": number,
+         "Text": "string"
+      }
+   ]
+}
