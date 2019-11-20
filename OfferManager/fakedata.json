@@ -1,7 +1,0 @@
-{"products": [
-    {"name": "trash", "price": "0.00", "description":"trash"},
-    {"name": "ball", "price": "5.00", "description":"small ball"},
-    {"name": "ball", "price": "7.50", "description":"medium ball"},
-    {"name": "ball", "price": "10.00", "description":"large ball"},
-    {"name": "trash", "price": "0.01", "description":"quality trash"}
-]}

@@ -1,0 +1,27 @@
+{
+  "name": "offers",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "class": {
+      "type": "string",
+      "required": true
+    },
+    "detail": {
+      "type": [
+        "string"
+      ]
+    },
+    "number": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
