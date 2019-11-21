@@ -38,5 +38,9 @@
   "offers": {
     "dataSource": "db",
     "public": true
+  },
+  "OneOffer": {
+    "dataSource": "db",
+    "public": true
   }
 }

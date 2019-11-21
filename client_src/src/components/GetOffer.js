@@ -6,29 +6,46 @@ class GetOffer extends Component {
     constructor(props){
         super();
         this.state={
-            details:''
+            details:[]
         }
     }
     componentDidMount(){
         this.getMeetup();
     }
     getMeetup(){
-        let classId=this.props.match.params.id;
-        axios.get(`http://localhost:3000/api/offers/${classId}`)
-        .then(response => {
-            this.setState({details: response.data}, () => {
-                console.log(this.state);
-            })
-        })
+        let className=this.props.match.params.class;
+        axios.get(`http://localhost:3000/api/OneOffers?filter={%22where%22:{%22class%22:%22${className}%22}}`)
+        .then(response => 
+                {
+                    let TheArray=[];
+                    for (var i=0;i<response.data.length;i++)
+                        {TheArray.push(response.data[i]); }
+                    this.setState({details : TheArray })
+                }
+            )
         .catch(err => console.log(err));
     }
     render() {
+        const MyOffers = this.state.details.map((detail) => {
+            return (
+                <div key={detail.id}>
+                    <li className="collection item">
+                        Name: {detail.name} Brand: {detail.brand} 
+                        <br></br>
+                        Detail: {detail.detail}
+                    </li>
+                    <br></br>
+                </div>
+            )
+        })
         return (
             <div>
                 <br/>
                 <Link className="btn grey" to="/"> Back</Link>
-                <h2>{this.state.details.class}</h2>
-                <h3>Offers:{this.state.details.detail}</h3>
+                <h2>{this.props.match.params.class} Offers:</h2>
+                <ul className="collection">
+                    {MyOffers}
+                </ul>
             </div>
         )
     }

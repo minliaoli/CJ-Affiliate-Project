@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import axios from 'axios';
 import Checkbox from "./Checkbox";
-import GetOffer from "./GetOffer"
 
 const BTypes = [
     'Sports','Technology','Politics','Cooking','Pets', 'Education', 'Travelling',
@@ -28,7 +27,7 @@ export class BlogTypes extends Component {
     axios.get('http://localhost:3000/api/offers')
     .then(response => {
         this.setState({offers: response.data}, () => {
-            console.log(this.state);
+            // console.log(this.state);
         })
     })
     .catch(err => console.log(err));
@@ -36,7 +35,6 @@ export class BlogTypes extends Component {
 
   selectAllCheckboxes = isSelected => {
     Object.keys(this.state.checkboxes).forEach(checkbox => {
-      // BONUS: Can you explain why we pass updater function to setState instead of an object?
       this.setState(prevState => ({
         checkboxes: {
           ...prevState.checkboxes,
@@ -75,7 +73,7 @@ export class BlogTypes extends Component {
         for (var i=0;i<this.state.offers.length;i++)
           {
               if(this.state.offers[i].class===checkbox){
-                window.open(`http://localhost:3001/offers/${this.state.offers[i].id}`)
+                window.open(`http://localhost:3001/offers/${this.state.offers[i].class}`)
               }
           }
       })
@@ -94,11 +92,6 @@ export class BlogTypes extends Component {
   createCheckboxes = () => BTypes.map(this.createCheckbox);
 
   render() {
-    const GetOffers = this.state.offers.map((offer,i) => {
-      return (
-          <GetOffer key={offer.id} item={offer} />
-      )
-    })
     return (
       <div className="container">
         <div className="row mt-5">
