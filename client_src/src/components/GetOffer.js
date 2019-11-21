@@ -29,8 +29,8 @@ class GetOffer extends Component {
         const MyOffers = this.state.details.map((detail) => {
             return (
                 <div key={detail.id}>
-                    <li className="collection item">
-                        Name: {detail.name} Brand: {detail.brand} 
+                    <li className="table-success">
+                        Name: <strong>{detail.name}</strong> Brand: {detail.brand} 
                         <br></br>
                         Detail: {detail.detail}
                     </li>
@@ -41,7 +41,7 @@ class GetOffer extends Component {
         return (
             <div>
                 <br/>
-                <Link className="btn grey" to="/"> Back</Link>
+                <Link className="btn btn-success" to="/"> Back</Link>
                 <h2>{this.props.match.params.class} Offers:</h2>
                 <ul className="collection">
                     {MyOffers}

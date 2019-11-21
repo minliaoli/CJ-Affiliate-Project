@@ -65,7 +65,7 @@ export class BlogTypes extends Component {
     console.log(this.state.offers[1].class);
 
     if(0===selected.length){
-      console.log("Nothing is selected!");
+      window.alert("Please select at least one type!");
     }
     else{
       selected.forEach(checkbox => {
@@ -96,28 +96,18 @@ export class BlogTypes extends Component {
       <div className="container">
         <div className="row mt-5">
           <div className="col-sm-12">
-            <form onSubmit={this.handleFormSubmit}>
+            <form onSubmit={this.handleFormSubmit} >
               {this.createCheckboxes()}
+              <br></br>
 
-              <div className="form-group mt-2">
-                <button
-                  type="button"
-                  className="btn btn-outline-primary mr-2"
-                  onClick={this.selectAll}
-                >
-                  Select All
-                </button>
-                <button
-                  type="button"
-                  className="btn btn-outline-primary mr-2"
-                  onClick={this.deselectAll}
-                >
-                  Deselect All
-                </button>
-                <button type="submit" className="btn btn-primary">
-                  Save
-                </button>
+              <div className="bs-component" style={{marginBottom: '15px'}}>
+                <div className="btn-group" role="group" aria-label="Basic example">
+                  <button type="button" onClick={this.selectAll} className="btn btn-success">Select All</button>
+                  <button type="button" onClick={this.deselectAll} className="btn btn-success">Deselect All</button>
+                  <button type="submit" className="btn btn-success  active">Submit</button>
+                </div>
               </div>
+
             </form>
           </div>
         </div>

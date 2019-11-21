@@ -8,12 +8,14 @@ class Home extends React.Component {
     render() {
       // console.log(this.state.todos)
       return (
+
         <div className="App">
+          <br></br>
           
           <section id = "App-selection">
             <div className="App-container">
-              <h2>Select Your Blog Types:</h2>
-  
+              <h2 style={{textAlign: 'center'}}><strong>Select Your Blog Types:</strong></h2>
+
               <BlogTypes />
   
             </div>
