@@ -2,7 +2,7 @@
   "db": {
     "host": "localhost",
     "port": 27017,
-    "url": "mongodb+srv://minliao:Cj123cj123@cluster0-kmbeq.mongodb.net/test?retryWrites=true&w=majority",
+    "url": "mongodb+srv://minliao:<password>@cluster0-kmbeq.mongodb.net/test?retryWrites=true&w=majority",
     "database": "db",
     "password": "",
     "name": "db",
