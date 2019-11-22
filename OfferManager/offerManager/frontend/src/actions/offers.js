@@ -13,7 +13,7 @@ export const getOffers = () => dispatch => {
         }).catch(err => console.log(err));
 };
 
-export const getProducts = () => dispatch => {
+export const importProducts = () => dispatch => {
     axios.get("/api/offers/")
         .then(res => {
             dispatch({
