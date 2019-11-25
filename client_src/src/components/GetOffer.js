@@ -13,8 +13,16 @@ class GetOffer extends Component {
         this.getMeetup();
     }
     getMeetup(){
-        let className=this.props.match.params.class;
-        axios.get(`http://localhost:3000/api/OneOffers?filter={%22where%22:{%22class%22:%22${className}%22}}`)
+        let theTypes=this.props.match.params.class.split("+");
+        //let className=this.props.match.params.class;
+        var link=`http://localhost:3000/api/OneOffers?filter={"where":{"or":[`;
+        link+=`{"class":"${theTypes[1]}"}`;
+        for(var i=2;i<theTypes.length;i++){
+            link+=",";
+            link+=`{"class":"${theTypes[i]}"}`;
+        }
+        link+=`]}}`
+        axios.get(link)
         .then(response => 
                 {
                     let TheArray=[];

@@ -62,21 +62,27 @@ export class BlogTypes extends Component {
   handleFormSubmit = formSubmitEvent => {
     formSubmitEvent.preventDefault();
     var selected=Object.keys(this.state.checkboxes).filter(checkbox => this.state.checkboxes[checkbox]);
-    console.log(this.state.offers[1].class);
+    //console.log(this.state.offers[1].class);
 
     if(0===selected.length){
       window.alert("Please select at least one type!");
     }
     else{
+      var theLink = "http://localhost:3001/offers/";
       selected.forEach(checkbox => {
-        console.log(checkbox)
+        //console.log(checkbox);
         for (var i=0;i<this.state.offers.length;i++)
           {
               if(this.state.offers[i].class===checkbox){
-                window.open(`http://localhost:3001/offers/${this.state.offers[i].class}`)
+                theLink+="+";
+                theLink+=this.state.offers[i].class;
+                //window.open(`http://localhost:3001/offers/${this.state.offers[i].class}`);
+                //window.location.href = "https://www.runoob.com";
               }
           }
       })
+      console.log(theLink);
+      window.location.href =theLink;
     }
   };
 
