@@ -22,24 +22,31 @@ class offer(object):
     def getPairs(self):
         return self.key_scores
 
+    def getText(self):
+        return self.text
+
 
 def Parse_Offer():
-    #OfferData = json.loads(open('capstone_shopping.json', 'r'))
+    Offerlist = []
     comprehend = boto3.client(service_name='comprehend', region_name='us-east-1')
-    text = "It is raining today in Seattle, I wonder what's gonna happen the day after this critical meeting"
-    OutPutFAWS=comprehend.detect_key_phrases(Text=text, LanguageCode='en')
-    newoffer = offer(text)
-    keyPhrases = OutPutFAWS['KeyPhrases']
-    for segment in keyPhrases:
-        keyword = segment['Text']
-        Score = segment['Score']
-        pair = key_score(Score, keyword)
-        newoffer.addPair(pair)
-        #offer.__init__(text,Score,keyword)
-    pairs =newoffer.getPairs()
-    for x in pairs:
-        print x
-    print newoffer.text
+    with open("capstone_shopping.json", 'r') as load_f:
+        OfferData = json.load(load_f)
+        for x in OfferData['products']:
+            text = x['title'] + x['description']
+            OutPutFAWS = comprehend.detect_key_phrases(Text=text, LanguageCode='en')
+            newoffer = offer(x)
+            keyPhrases = OutPutFAWS['KeyPhrases']
+            for segment in keyPhrases:
+                keyword = segment['Text']
+                Score = segment['Score']
+                pair = key_score(Score, keyword)
+                newoffer.addPair(pair)
+            Offerlist.append(newoffer)
+
+    print Offerlist[0].getText()
+    print Offerlist[0].getPairs()
+
+
 
 ##########detecting entities
     print('Calling DetectEntities')
