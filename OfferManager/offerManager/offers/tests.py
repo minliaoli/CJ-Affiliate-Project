@@ -12,4 +12,20 @@ class databaseTest(SimpleTestCase)
         response = db.child("products").get()
         self.assertTrue(response)
 
+    def test_page_add(self):
+        response = self.client.post('/api/offer')
+        self.assertEquals(response.status_code, 201)
+
+    def test_page_retreive(self):
+        response = self.client.get('/api/offer')
+        self.assertEquals(response.status_code, 201)
+
+    def test_page_product_add(self):
+       response = self.client.post('/api/product')
+       self.assertEquals(response.status_code, 201)
+
+    def test_page_product_retrieve(self):
+       response = self.client.get('/api/product')
+       self.assertEquals(response.status_code, 201)
+
     

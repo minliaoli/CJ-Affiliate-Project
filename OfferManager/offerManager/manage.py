@@ -25,9 +25,9 @@ def main():
     for product in products.each():
         c.execute('INSERT INTO offers_offers VALUES (NULL, description, name, price)', product.val()) """
 
-    client = pymongo.MongoClient("mongodb+srv://<" + urllib.parse.quote_plus("nguan@admin") + ">:<" + urllib.parse.quote_plus("Ng5668353") + ">@cluster0-kmbeq.mongodb.net/test?retryWrites=true&w=majority")
-    db = client["test"]
-    col = db["OneOffer"]
+    client = pymongo.MongoClient("mongodb+srv://nguan:Ng5668253@cluster0-kmbeq.mongodb.net/test?retryWrites=true&w=majority")
+    db = client['test']
+    col = db['OneOffer']
     for x in col.find():
         print(x)
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'offerManager.settings')
