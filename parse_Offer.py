@@ -33,18 +33,27 @@ def Parse_Offer():
         OfferData = json.load(load_f)
         for x in OfferData['products']:
             text = x['title'] + x['description']
+            print('Calling detectingkeywords')
             OutPutFAWS = comprehend.detect_key_phrases(Text=text, LanguageCode='en')
+            print('End of detectingkeywords')
             newoffer = offer(x)
             keyPhrases = OutPutFAWS['KeyPhrases']
+            #print keyPhrases
             for segment in keyPhrases:
                 keyword = segment['Text']
                 Score = segment['Score']
                 pair = key_score(Score, keyword)
                 newoffer.addPair(pair)
+                #print  newoffer.getPairs()[0]
             Offerlist.append(newoffer)
+            break
 
+    ## this segment of loop test the functionality of printing the organized
+    # keywords in an offer
     print Offerlist[0].getText()
-    print Offerlist[0].getPairs()
+    for x in Offerlist[0].getPairs():
+        print x
+
 
 
 
