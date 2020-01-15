@@ -39,6 +39,7 @@ input string text
 output: class blog
 description: this function takes a piece of text and output a class blog object.
 
+
 def get_tag(string text)
 input string text
 output: string text
