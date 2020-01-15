@@ -1,0 +1,45 @@
+classes:
+
+class Offer
+def getPairs()
+def getText()
+
+class blog
+def getPairs()
+def getText()
+
+
+the two functions are ideal in both classes.
+
+getpairs() returns a key_score object which has _str_ method that returns sth like this:
+
+[‘Score’:’0.99’, ‘keyword’: ‘clothing’,
+‘Score’:’0.97’, ‘keyword’: ‘women’,
+‘Score’:’0.90’, ‘keyword’: ‘Adidas’,
+…
+]
+
+gettext() returns a string of text which is either offer description or blog text.
+
+
+
+
+
+
+functions:
+
+def Parse_Offer(string text)
+input: string text
+output: class Offer
+description: this function takes in a text which must be a single line stripped from CJ offer json file (capstone_shopping.json) and returns a class Offer object.
+
+
+def Parse_Blog(String text)
+input string text
+output: class blog
+description: this function takes a piece of text and output a class blog object.
+
+def get_tag(string text)
+input string text
+output: string text
+description: this function takes a piece of text which is supposed to be the keywords list from the two functions above. returns a string which is the category related with these keywords.
