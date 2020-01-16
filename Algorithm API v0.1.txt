@@ -30,14 +30,14 @@ functions:
 
 def Parse_Offer(string text)
 input: string text
-output: class Offer
-description: this function takes in a text which must be a single line stripped from CJ offer json file (capstone_shopping.json) and returns a class Offer object.
+output: list of keywords
+description: this function takes in a text which must be a single line stripped from CJ offer json file (capstone_shopping.json) and returns a list of keywords.
 
 
 def Parse_Blog(String text)
 input string text
-output: class blog
-description: this function takes a piece of text and output a class blog object.
+output: list of keywords
+description: this function takes a piece of text and output a list of keywords.
 
 
 def get_tag(string text)
