@@ -27,6 +27,10 @@ gettext() returns a string of text which is either offer description or blog tex
 
 
 functions:
+def analyze_all_Offer()
+input: null
+output: null
+description: this function will run the parse_offer on all the offers in the database and feed the keywords with respected id.
 
 def Parse_Offer(string text)
 input: string text
