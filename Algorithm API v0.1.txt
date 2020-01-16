@@ -44,3 +44,8 @@ def get_tag(string text)
 input string text
 output: string text
 description: this function takes a piece of text which is supposed to be the keywords list from the two functions above. returns a string which is the category related with these keywords.
+
+def find_sys(list keywords)
+input a list a keywords
+output: a list of keywords and its synonyms
+description: as above.
