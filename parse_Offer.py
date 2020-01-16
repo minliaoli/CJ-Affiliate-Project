@@ -80,6 +80,16 @@ def Parse_Blog(text):
         keywordlist.append(keyword)
     return keywordlist
 
+def analyze_all_Offers():
+    #someway to access all the offers
+    for x in OfferData['products']:
+        keywords = Parse_Offer(x)
+        #someway to create a new entry in mongoDB
+
+
+def get_tag(text):
+    
+        
 
 
 
