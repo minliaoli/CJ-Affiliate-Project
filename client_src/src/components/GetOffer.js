@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
-import{Chart} from 'chart.js';
+import {Chart} from 'chart.js';
 
 class GetOffer extends Component {
     constructor(props){

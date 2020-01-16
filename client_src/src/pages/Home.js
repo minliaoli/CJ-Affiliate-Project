@@ -1,6 +1,8 @@
 import React from 'react';
 import '../css/App.css';
 import BlogTypes from '../components/BlogTypes';
+import BlogText from '../components/BlogText';
+import BlogUrl from '../components/BlogUrl';
 
 class Home extends React.Component {
 
@@ -32,7 +34,7 @@ class Home extends React.Component {
                 </button>
               </p>
               <div class="collapse" id="collapseExample2">
-                <p>Text Area</p>
+                <BlogText />
               </div>
 
 
@@ -43,7 +45,7 @@ class Home extends React.Component {
                 </button>
               </p>
               <div class="collapse" id="collapseExample3">
-                <p>URL Area</p>
+                <BlogUrl />
               </div>
 
 
