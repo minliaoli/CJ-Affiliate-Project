@@ -35,7 +35,7 @@ def Parse_Offer(text):
     #with open("capstone_shopping.json", 'r') as load_f:
     #OfferData = json.load(load_f)
     #for x in OfferData['products']:
-    text2 = text['title'] + text['description']
+    text2 = text['title'] #+ text['description']
     print('Calling detectingkeywords')
     OutPutFAWS = comprehend.detect_key_phrases(Text=text2, LanguageCode='en')
     print('End of detectingkeywords')
