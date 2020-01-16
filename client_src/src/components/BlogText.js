@@ -22,12 +22,12 @@ export class BlogText extends Component {
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
-                <div class="form-group">
-                    <label for="exampleFormControlTextarea4">Enter blog text:</label>
+                <div className="form-group">
+                    <label htmlFor="exampleFormControlTextarea4">Enter blog text:</label>
                     <textarea value={this.state.value} onChange={this.handleChange} 
-                    class="form-control" id="exampleFormControlTextarea4" rows="5" placeholder="Enter blog here"></textarea>
+                    className="form-control" id="exampleFormControlTextarea4" rows="5" placeholder="Enter blog here"></textarea>
                     <br></br>
-                    <button type="submit" class="btn btn-success mb-2">submit</button>
+                    <button type="submit" className="btn btn-success mb-2">submit</button>
                 </div>    
             </form>
                
