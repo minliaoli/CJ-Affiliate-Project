@@ -24,7 +24,7 @@ export class BlogTypes extends Component {
     this.getOffers();
   }
   getOffers(){
-    axios.get('http://localhost:3001/api/offers')
+    axios.get('http://localhost:3000/api/offers')
     .then(response => {
         this.setState({offers: response.data}, () => {
             // console.log(this.state);

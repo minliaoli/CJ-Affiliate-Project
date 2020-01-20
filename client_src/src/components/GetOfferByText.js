@@ -3,7 +3,7 @@ import axios from 'axios';
 import {Link} from 'react-router-dom';
 import {Chart} from 'chart.js';
 
-class GetOffer extends Component {
+class GetOfferByText extends Component {
     constructor(props){
         super();
         this.state={
@@ -57,15 +57,12 @@ class GetOffer extends Component {
 
 
       ///get offer part
-        let theTypes=this.props.match.params.class.split("+");
+        let theText=this.props.match.params.blogtext;
         //let className=this.props.match.params.class;
-        var link=`http://localhost:3000/api/OneOffers?filter={"where":{"or":[`;
-        link+=`{"class":"${theTypes[1]}"}`;
-        for(var i=2;i<theTypes.length;i++){
-            link+=",";
-            link+=`{"class":"${theTypes[i]}"}`;
-        }
-        link+=`]}}`
+        var link=`http://localhost:5000/alg/${theText}`;
+
+        console.log(`opening ${link}`)
+       
         axios.get(link)
         .then(response => 
                 {
@@ -104,10 +101,12 @@ class GetOffer extends Component {
                     {/* <Link className="btn-lg btn-success" to="/"> Back</Link> */}
                     <h2>{this.props.match.params.class} Offers:</h2>
                 </div>
+                
                 <br></br>
                 <ul className="collection">
                     {MyOffers}
                 </ul>
+
                 <div className="myChartContainer" style={divStyle}>
                 <canvas id="myChart" width="1000" height="400"></canvas>
                 </div>
@@ -116,4 +115,4 @@ class GetOffer extends Component {
     }
 }
 
-export default GetOffer
+export default GetOfferByText

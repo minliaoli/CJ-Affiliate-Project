@@ -1,18 +1,4 @@
 import React, { Component } from 'react'
-const axios = require('axios');
-
-const options = {
-    url: 'http://localhost:5000/test/data',
-    method: 'GET'//,
-    // headers: {
-    //   'Accept': 'application/json',
-    //   'Content-Type': 'application/json;charset=UTF-8'
-    // },
-    // data: {
-    //   a: 10,
-    //   b: 20
-    // }
-  };
 
 export class BlogText extends Component {
     constructor(props) {
@@ -27,16 +13,26 @@ export class BlogText extends Component {
     
     handleChange(event) {
         this.setState({value: event.target.value});
-    }
+    };
 
     handleSubmit(event) {
-        alert('Blog Text: ' + this.state.value);
         event.preventDefault();
-        axios(options)
-            .then(response => {
-                console.log(response);
-  });
-    }
+        var blogText=this.state.value;
+
+        if(0===blogText.length){
+            window.alert("Please enter something!");
+        }
+        else{
+            var theLink = "http://localhost:3001/textoffers/";
+            theLink += this.state.value;
+            console.log(theLink);
+            window.location.href =theLink;
+          }
+
+        alert('Blog Text: ' + this.state.value);
+    };
+
+
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
