@@ -19,32 +19,32 @@ class Home extends React.Component {
               <h2 style={{textAlign: 'center'}}><strong>Select Your Blog Types:</strong></h2>
 
               <p>
-                <button class="btn btn-success btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample">
+                <button className="btn btn-success btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample">
                   Enter by selecting from keywords
                 </button>
               </p>
-              <div class="collapse" id="collapseExample1">
+              <div className="collapse" id="collapseExample1">
                 <BlogTypes />
               </div>
 
 
               <p>
-                <button class="btn btn-success btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">
+                <button className="btn btn-success btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">
                   Enter by entering blog text
                 </button>
               </p>
-              <div class="collapse" id="collapseExample2">
+              <div className="collapse" id="collapseExample2">
                 <BlogText />
               </div>
 
 
 
               <p>
-                <button class="btn btn-success btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseExample3" aria-expanded="false" aria-controls="collapseExample">
+                <button className="btn btn-success btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseExample3" aria-expanded="false" aria-controls="collapseExample">
                   Enter by entering URL
                 </button>
               </p>
-              <div class="collapse" id="collapseExample3">
+              <div className="collapse" id="collapseExample3">
                 <BlogUrl />
               </div>
 
