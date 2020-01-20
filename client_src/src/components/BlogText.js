@@ -1,4 +1,18 @@
 import React, { Component } from 'react'
+const axios = require('axios');
+
+const options = {
+    url: 'http://localhost:5000/test/data',
+    method: 'GET'//,
+    // headers: {
+    //   'Accept': 'application/json',
+    //   'Content-Type': 'application/json;charset=UTF-8'
+    // },
+    // data: {
+    //   a: 10,
+    //   b: 20
+    // }
+  };
 
 export class BlogText extends Component {
     constructor(props) {
@@ -18,6 +32,10 @@ export class BlogText extends Component {
     handleSubmit(event) {
         alert('Blog Text: ' + this.state.value);
         event.preventDefault();
+        axios(options)
+            .then(response => {
+                console.log(response);
+  });
     }
     render() {
         return (
