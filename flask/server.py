@@ -15,9 +15,16 @@ def testAlg():
 
 @app.route('/test/<data>', methods=['GET', 'POST'])
 def test(data):
-    if data == 'data' :
+    if data == 'data is true' : 
         return 'true'
+    if data =='data' :
+        return 'yes but'
     return 'false'
+
+@app.route('/alg/<inputData>', methods=['GET'])
+def runAlg(inputData):
+    if inputData == testInput : 
+        return '200 true we goodie'
 
 if __name__ == "__main__":
     app.run()
