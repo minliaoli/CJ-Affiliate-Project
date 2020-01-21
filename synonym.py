@@ -4,7 +4,7 @@ from nltk.stem import WordNetLemmatizer
 def check(keywordO,keywordB):
     lemmatizer = WordNetLemmatizer()
     g = lemmatizer.lemmatize('Cardigan',pos='v')
-    print  g
+    print (g)
     w1 = wordnet.synset('Cardigan.n.01')
     w2 = wordnet.synset('car.n.01')
     print(w1.wup_similarity(w2))
@@ -16,6 +16,3 @@ def check(keywordO,keywordB):
     #         prep2 = wordnet.synset(word)
     #         print(prep.wup_similarity(prep2))
 
-
-if __name__ == "__main__":
-    check(1,2)

@@ -1,5 +1,7 @@
 import boto3
 import json
+import pymongo
+import synonym.py
 
 class key_score(object):
 
@@ -32,61 +34,91 @@ class offer(object):
     def getText(self):
         return self.text
 
+comprehend = boto3.client(service_name='comprehend', region_name='us-east-1')
 
-def Parse_Offer(filename):
-    Offerlist = []
-    comprehend = boto3.client(service_name='comprehend', region_name='us-east-1')
-    with open(filename, 'r') as load_f:
+
+def function_a(text):
+    returnNum = 0
+    returnlist = []
+    allOffers = Parse_Offer("capstone_shopping.json")
+    keywordB = Parse_Blog(text)
+    total_count = keywordB.__len__()
+    good_count = 3
+    valid_count = 0
+    for x in allOffers:
+        OfferText = x.getText()
+        OfferKeywords = x.getPairsT()  # get the list of keywords stripped from the title
+        for offerKeyword in OfferKeywords:  # check if a list of keywords from offer x matches text y
+            for blogKeyword in keywordB:
+                if synonym.check(offerKeyword,blogKeyword) > 0.6:
+                    valid_count += 1
+                if valid_count >= good_count:  # if enough words matched, break from loop
+                    break
+            if valid_count >= good_count:  # again, break from this loop too
+                break
+        returnlist.append(OfferText)
+        returnNum += 1
+        valid_count = 0
+        if returnNum >= 10: # if 10 offers matched, finish the algorithm and return
+            break
+    return returnlist
+
+
+
+
+
+def Parse_Offer(text):
+    all_offer =[]
+    #comprehend = boto3.client(service_name='comprehend', region_name='us-east-1')
+    with open(text, 'r') as load_f:
         OfferData = json.load(load_f)
         for x in OfferData['products']:
-            textTitle = x['title']
-            textDescription = x['description']
+            text2 = x['title']  # + text['description']
+            TheOffer = offer(x)
             print('Calling detectingkeywords')
-            OutPutFAWS = comprehend.detect_key_phrases(Text=textTitle, LanguageCode='en')
-            OutPutFAWS2 = comprehend.detect_key_phrases(Text=textDescription, LanguageCode='en')
+            OutPutFAWS = comprehend.detect_key_phrases(Text=text2, LanguageCode='en')
             print('End of detectingkeywords')
-            newoffer = offer(x)
             keyPhrases = OutPutFAWS['KeyPhrases']
-            #print keyPhrases
             for segment in keyPhrases:
                 keyword = segment['Text']
                 Score = segment['Score']
-                keyword.encode("ascii")
-                pair = key_score(Score, keyword)
-                newoffer.addPairT(pair)
-                #print  newoffer.getPairs()[0]
-            keyPhrases = OutPutFAWS2['KeyPhrases']
-            for segment in keyPhrases:
-                keyword = segment['Text']
-                Score = segment['Score']
-                pair = key_score(Score, keyword)
-                newoffer.addPairD(pair)
-            Offerlist.append(newoffer)
-            break
+                if (Score < 60):
+                    continue;
+                TheOffer.addPairT(keyword)
+            all_offer.append(TheOffer)
+    return all_offer
+
+    # pair = key_score(Score, keyword)
+    # newoffer.addPair(pair)
+    # print  newoffer.getPairs()[0]
+    # Offerlist.append(newoffer)
+    # break
 
     ## this segment of loop test the functionality of printing the organized
     # keywords in an offer
-    print Offerlist[0].getText()
-    print 'TITLE'
-    for x in Offerlist[0].getPairsT():
-        print x
-    print 'Description'
-    for x in Offerlist[0].getPairsD():
-        print x
-    ##########detecting entities
-    print('Calling DetectEntities')
-    print(json.dumps(comprehend.detect_entities(Text=textDescription, LanguageCode='en'), sort_keys=True, indent=4))
-    print('End of DetectEntities\n')
-
-####there are lots of redundencies in offers, maybe we can clean them
-def Clean_Offers():
-    with open("capstone_all.json", 'r') as load_f:
-        OfferData = json.load(load_f)
+    # print Offerlist[0].getText()
+    # for x in Offerlist[0].getPairs():
+    #   print x
 
 
+def Parse_Blog(text):
+    keywordlist = []
+    #comprehend = boto3.client(service_name='comprehend', region_name='us-east-1')
+    # with open("capstone_shopping.json", 'r') as load_f:
+    # OfferData = json.load(load_f)
+    # for x in OfferData['products']:
+    print('Calling detectingkeywords')
+    OutPutFAWS = comprehend.detect_key_phrases(Text=text, LanguageCode='en')
+    print('End of detectingkeywords')
+    keyPhrases = OutPutFAWS['KeyPhrases']
+    for segment in keyPhrases:
+        keyword = segment['Text']
+        Score = segment['Score']
+        if (Score < 60):
+            continue;
+        keywordlist.append(keyword)
+    return keywordlist
 
 
 if __name__ == "__main__":
     Parse_Offer("capstone_shopping.json")
-
-
