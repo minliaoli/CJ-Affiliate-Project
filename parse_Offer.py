@@ -34,7 +34,7 @@ class offer(object):
     def getText(self):
         return self.text
 
-comprehend = boto3.client(service_name='comprehend', region_name='us-east-1')
+ comprehend = boto3.client(service_name='comprehend', region_name='us-east-1')
 
 
 def function_a(text):
@@ -119,6 +119,39 @@ def Parse_Blog(text):
         keywordlist.append(keyword)
     return keywordlist
 
+def clean_json(text):
+    # this function cleans the json file since some offers have redundant lines
+    new_dict={}
+    new_list=[]
+    with open(text, 'r') as load_f:
+        OfferData = json.load(load_f)
+        cache=[]
+        cache_size = 20
+        cache_now = 0
+        firstTime = 0
+        for OneLine in OfferData['products']:
+            info = OneLine['title']+OneLine['description']
+            if info not in cache:
+                if firstTime == 0:
+                    cache.append(info)
+                else:
+                    cache.pop(cache_now)
+                    cache.insert(cache_now , info)
+                cache_now += 1
+                new_list.append(OneLine)
+                if cache_now == cache_size:
+                    cache_now = 0
+                    firstTime == 1
+    new_dict["products"] = new_list
+    #new_dict2 = json.loads(new_dict)
+    with open("capstone_shopping_clean.json", "w") as f:
+        json.dump(new_dict, f)
+    print("done.")
+
+
+
+
+
 
 if __name__ == "__main__":
-    Parse_Offer("capstone_shopping.json")
+    clean_json('capstone_shopping_clean.json')
