@@ -59,7 +59,9 @@ class GetOfferByText extends Component {
       ///get offer part
         let theText=this.props.match.params.blogtext;
         //let className=this.props.match.params.class;
+
         var link=`http://localhost:5000/alg/${theText}`;
+        //var link=`http://localhost:3000/api/CJOffers?filter={"where":{"or":[{"id":"5e2f84d9373a5e0a80934bf7"},{"id":"5e2f84d9373a5e0a80934c27"},{"id":"5e2f84d9373a5e0a80934e0b"},{"id":"5e2f84d9373a5e0a80935ab5"},{"id":"5e2f84d9373a5e0a80934add"}]}}`;
 
         console.log(`opening ${link}`)
        
@@ -79,9 +81,15 @@ class GetOfferByText extends Component {
             return (
                 <div key={detail.id}>
                     <li className="table-success">
-                        Name: <strong>{detail.name}</strong> Brand: {detail.brand} 
+                        Name: <strong>{detail.title}</strong> 
                         <br></br>
-                        Detail: {detail.detail}
+                        advertiser Name: {detail.advertiserName} 
+                        <br></br>
+                        Detail: {detail.description}
+                        <br></br>
+                        <a href={detail.link} className="btn btn-success">Item Link</a>
+                        <br></br>
+                        <img src={detail.imageLink} alt={detail.title} className="rounded mx-auto d-block"></img>
                     </li>
                     <br></br>
                 </div>
