@@ -14,7 +14,8 @@ def initializeDB():
     collection = db.CJOffers
     posts = db.posts
 def sortSecond(val):
-    return val[1]
+    a = list(val)
+    return a[1]
 
 def function_a(text):
     scores = categorize(text)
@@ -34,12 +35,12 @@ def function_c(text):
     similarity=[]
     for each in OfferData:
         score = 0
-        if scores[0][0] == each['categoryname']:
-            score += scores[0][1]*1
-        if scores[1][0] == each['categoryname']:
-            score += scores[0][1] * 0.8
-        if scores[2][0] == each['categoryname']:
-            score += scores[0][1] * 0.6
+        if list(scores[0])[0] == each['categoryname']:
+            score += list(scores[0])[1]*1
+        if list(scores[1])[0] == each['categoryname']:
+            score += list(scores[1])[1] * 0.8
+        if list(scores[2])[0] == each['categoryname']:
+            score += list(scores[2])[1] * 0.6
         similarity.append([each,score])
     similarity.sort(key=sortSecond,reverse=True)
     return similarity
@@ -69,5 +70,5 @@ def categorize(text):
 
 if __name__ == "__main__":
     string ="sdf {} sdd".format("\"qee\"")
-    print  string
-    print function_c("The car/van picks you up from Noi Bai airport (in Ha Noi) to take you to the heart of the city. After arriving at the hotel after a 40-minute drive, check in and have a free time to walk around Old Quarter or explore the night market in Ha Noi downtown.Until 21:00 pm: Our guide will pick up you at your hotel for boarding the train to travel to Lao Cai.")
+    print  (string)
+    print (function_c("The car/van picks you up from Noi Bai airport (in Ha Noi) to take you to the heart of the city. After arriving at the hotel after a 40-minute drive, check in and have a free time to walk around Old Quarter or explore the night market in Ha Noi downtown.Until 21:00 pm: Our guide will pick up you at your hotel for boarding the train to travel to Lao Cai."))
