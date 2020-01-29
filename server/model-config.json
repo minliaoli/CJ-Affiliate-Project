@@ -42,5 +42,9 @@
   "OneOffer": {
     "dataSource": "db",
     "public": true
+  },
+  "CJOffers": {
+    "dataSource": "db",
+    "public": true
   }
 }
