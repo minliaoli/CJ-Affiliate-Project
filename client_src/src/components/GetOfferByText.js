@@ -13,6 +13,15 @@ class GetOfferByText extends Component {
     componentDidMount(){
         this.getOffers();
     }
+    myFunction(idN) {
+        let me=document.getElementById(idN)
+        console.log(me)
+        // let copyText = this.textArea;
+        me.select();
+        me.setSelectionRange(0, 99999); 
+        document.execCommand("copy");
+        alert(`AD Link Copied!`);
+      }
     getOffers(){
 // get chart part
     var ctx = document.getElementById('myChart').getContext('2d');
@@ -58,10 +67,9 @@ class GetOfferByText extends Component {
 
       ///get offer part
         let theText=this.props.match.params.blogtext;
-        //let className=this.props.match.params.class;
 
-        var link=`http://localhost:5000/alg/${theText}`;
-        //var link=`http://localhost:3000/api/CJOffers?filter={"where":{"or":[{"id":"5e2f84d9373a5e0a80934bf7"},{"id":"5e2f84d9373a5e0a80934c27"},{"id":"5e2f84d9373a5e0a80934e0b"},{"id":"5e2f84d9373a5e0a80935ab5"},{"id":"5e2f84d9373a5e0a80934add"}]}}`;
+        //var link=`http://localhost:5000/alg/${theText}`;
+        var link=`http://localhost:3000/api/CJOffers?filter={"where":{"or":[{"id":"5e386a4199a3e94b4c3657cf"},{"id":"5e386a4199a3e94b4c3657e3"},{"id":"5e386a4199a3e94b4c366451"},{"id":"5e386a4199a3e94b4c366d3e"},{"id":"5e386a4199a3e94b4c3676e3"}]}}`;
 
         console.log(`opening ${link}`)
        
@@ -77,7 +85,13 @@ class GetOfferByText extends Component {
         .catch(err => console.log(err));
     }
     render() {
+        var maxStyle = {
+            maxHeight : 200
+          };
         const MyOffers = this.state.details.map((detail) => {
+            var href1="#a"+(detail.id);
+            var href2="a"+(detail.id);
+            var idHtml="b"+(detail.id);
             return (
                 <div key={detail.id}>
                     <li className="table-success">
@@ -87,9 +101,28 @@ class GetOfferByText extends Component {
                         <br></br>
                         Detail: {detail.description}
                         <br></br>
-                        <a href={detail.link} className="btn btn-success">Item Link</a>
+                        <a href={detail.link} target="blank" className="btn btn-success">See More Detail</a>  
                         <br></br>
-                        <img src={detail.imageLink} alt={detail.title} className="rounded mx-auto d-block"></img>
+                        <br></br>
+                        <p>
+                            <a className="btn btn-success" data-toggle="collapse" href={href1} role="button" aria-expanded="false" aria-controls="collapseExample">
+                            Copy the Link
+                            </a>
+                        </p>
+
+                        <div className="collapse" id={href2}>
+                            <textarea readOnly
+                            ref={(textarea) => this.textArea = textarea}
+                            value={detail.link}
+                            id={idHtml}
+                            style={{width: '100%'}}
+
+                            />
+                            <button className="btn btn-outline-success" onClick={() => this.myFunction(idHtml)}>Copy Link</button>
+                        </div>
+                        <br></br>
+                        <br></br>
+                        <img src={detail.imageLink} alt={detail.link} className="rounded mx-auto d-block" style={maxStyle}></img>
                     </li>
                     <br></br>
                 </div>
