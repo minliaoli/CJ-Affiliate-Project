@@ -69,7 +69,9 @@ class GetOfferByText extends Component {
         let theText=this.props.match.params.blogtext;
 
         var link=`http://localhost:5000/alg/${theText}`;
+
         //var link=`http://localhost:3000/api/CJOffers?filter={"where":{"or":[{"id":"5e386a4199a3e94b4c3657cf"},{"id":"5e386a4199a3e94b4c3657e3"},{"id":"5e386a4199a3e94b4c366451"},{"id":"5e386a4199a3e94b4c366d3e"},{"id":"5e386a4199a3e94b4c3676e3"}]}}`;
+        //var link=`http://localhost:3000/api/CJOffers?filter={"where":{"or":[{"id":"5e3a7d30f125753e48b6c16b"},{"id":"5e3a7cc8f125753e48b6b51b"},{"id":"5e3a7d1bf125753e48b6bdf2"},{"id":"5e3a7d30f125753e48b6c306"},{"id":"5e3b96f86d73459893a3c807"}]}}`;
 
         console.log(`opening ${link}`)
        
@@ -95,21 +97,25 @@ class GetOfferByText extends Component {
             var idHtml="b"+(detail.id);
             return (
                 <div key={detail.id}>
-                    <li className="table-success">
-                        Name: <strong>{detail.title}</strong> 
+                    <div className="card"> 
+                    <tr className="table-success"> 
+                    <div class="row">
+                    <div className="col">
+                    <br></br>
+                    <strong>Name: </strong> {detail.title} 
                         <br></br>
-                        advertiser Name: {detail.advertiserName} 
+                    <strong>advertiser Name: </strong>{detail.advertiserName} 
                         <br></br>
-                        Detail: {detail.description}
+                    <strong>Detail: </strong>{detail.description}
                         <br></br>
+                        <div className="btn-group">
                         <a href={detail.link} target="blank" className="btn btn-success">See More Detail</a>  
+                            
+                        <a className="btn btn-outline-success" data-toggle="collapse" href={href1} role="button" aria-expanded="false" aria-controls="collapseExample">
+                        Copy the Link
+                        </a>
+                        </div>
                         <br></br>
-                        <br></br>
-                        <p>
-                            <a className="btn btn-success" data-toggle="collapse" href={href1} role="button" aria-expanded="false" aria-controls="collapseExample">
-                            Copy the Link
-                            </a>
-                        </p>
 
                         <div className="collapse" id={href2}>
                             <textarea readOnly
@@ -122,18 +128,25 @@ class GetOfferByText extends Component {
                             <button className="btn btn-outline-success" onClick={() => this.myFunction(idHtml)}>Copy Link</button>
                         </div>
                         <br></br>
-                        <br></br>
-                        <img src={detail.imageLink} alt={detail.link} className="rounded mx-auto d-block" style={maxStyle}></img>
-                    </li>
+                    </div>
+                        
+                    <div className="col">
                     <br></br>
+                    <img src={detail.imageLink} alt={detail.link} className="rounded mx-auto d-block" style={maxStyle}></img>
+                    <br></br>
+                    </div>
+                    </div>
+                    </tr> 
+                    </div>
+                    
                 </div>
             )
         })
 
         var divStyle = {
             textalign:"center",
-            width:"1000px" ,
-            height:"400px"
+            width:"80%" ,
+            height:"600px"
           };
         return (
             <div>
@@ -150,7 +163,7 @@ class GetOfferByText extends Component {
                 </ul>
 
                 <div className="myChartContainer" style={divStyle}>
-                <canvas id="myChart" width="1000" height="400"></canvas>
+                <canvas id="myChart"></canvas>
                 </div>
             </div>
         )

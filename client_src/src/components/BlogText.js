@@ -29,7 +29,7 @@ export class BlogText extends Component {
             window.location.href =theLink;
           }
 
-        alert('Blog Text: ' + this.state.value);
+        // alert('Blog Text: ' + this.state.value);
     };
 
 
