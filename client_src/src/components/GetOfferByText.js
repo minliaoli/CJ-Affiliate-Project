@@ -68,8 +68,8 @@ class GetOfferByText extends Component {
       ///get offer part
         let theText=this.props.match.params.blogtext;
 
-        //var link=`http://localhost:5000/alg/${theText}`;
-        var link=`http://localhost:3000/api/CJOffers?filter={"where":{"or":[{"id":"5e386a4199a3e94b4c3657cf"},{"id":"5e386a4199a3e94b4c3657e3"},{"id":"5e386a4199a3e94b4c366451"},{"id":"5e386a4199a3e94b4c366d3e"},{"id":"5e386a4199a3e94b4c3676e3"}]}}`;
+        var link=`http://localhost:5000/alg/${theText}`;
+        //var link=`http://localhost:3000/api/CJOffers?filter={"where":{"or":[{"id":"5e386a4199a3e94b4c3657cf"},{"id":"5e386a4199a3e94b4c3657e3"},{"id":"5e386a4199a3e94b4c366451"},{"id":"5e386a4199a3e94b4c366d3e"},{"id":"5e386a4199a3e94b4c3676e3"}]}}`;
 
         console.log(`opening ${link}`)
        
@@ -78,7 +78,8 @@ class GetOfferByText extends Component {
                 {
                     let TheArray=[];
                     for (var i=0;i<response.data.length;i++)
-                        {TheArray.push(response.data[i]); }
+                        {TheArray.push(response.data[i]); 
+                        console.log(response.data[i])}
                     this.setState({details : TheArray })
                 }
             )
