@@ -91,6 +91,8 @@ class GetOfferByText extends Component {
         const MyOffers = this.state.details.map((detail) => {
             var href1="#a"+(detail.id);
             var href2="a"+(detail.id);
+            var href3="#aa"+(detail.id);
+            var href4="aa"+(detail.id);
             var idHtml="b"+(detail.id);
             return (
                 <div key={detail.id}>
@@ -102,18 +104,26 @@ class GetOfferByText extends Component {
                     <br></br>
                     <strong>Name: </strong> {detail.title} 
                         <br></br>
-                    <strong>advertiser Name: </strong>{detail.advertiserName} 
-                        <br></br>
-                    <strong>Detail: </strong>{detail.description}
+                    <strong>Advertiser Name: </strong>{detail.advertiserName} 
                         <br></br>
                         <div className="btn-group">
-                        <a href={detail.link} target="blank" className="btn btn-success">See More Detail</a>  
+                        <a className="btn btn-outline-success" data-toggle="collapse" href={href3} role="button" aria-expanded="false" aria-controls="collapseExample">
+                        View Detail
+                        </a>
+
+                        <a href={detail.link} target="blank" className="btn btn-success">Open Product Page</a>  
                             
                         <a className="btn btn-outline-success" data-toggle="collapse" href={href1} role="button" aria-expanded="false" aria-controls="collapseExample">
                         Copy the Link
                         </a>
                         </div>
                         <br></br>
+                        <br></br>
+
+                        <div className="collapse" id={href4}>
+                            <strong>Detail: </strong>{detail.description}
+                            <br></br>
+                        </div>
 
                         <div className="collapse" id={href2}>
                             <textarea readOnly
