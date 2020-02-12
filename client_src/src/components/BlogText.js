@@ -23,22 +23,12 @@ export class BlogText extends Component {
             window.alert("Please enter something!");
         }
         else{
-            //blogText=toString(blogText)
-            console.log(typeof(blogText))
-            // blogText=blogText.replace(/\\["']/g, ' ')
-            blogText=blogText.replace(/[^A-Za-z0-9 ]/g, ' ');
-            // blogText=blogText.replace(/[/]+/g, ' ');
-            // blogText=blogText.replace(/\\|\//g,' ');
-            // blogText=blogText.replace(/\\"/g, ' ');
-            window.alert(blogText)
-            blogText = encodeURIComponent(blogText)
-            //console.log(blogText);
+            blogText=blogText.replace(/[^A-Za-z0-9]/g, ' ');
+            console.log(blogText);
+            //window.alert(blogText)
             var theLink = "http://localhost:3001/textoffers/";
             theLink += blogText;
-            //window.alert(theLink);
-            //theLink = encodeURI(theLink)
-            window.location.href = theLink;
-            window.alert(theLink)
+            window.location.href =theLink;
           }
 
         // alert('Blog Text: ' + this.state.value);
