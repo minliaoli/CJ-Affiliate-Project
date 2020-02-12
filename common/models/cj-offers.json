@@ -5,7 +5,42 @@
   "options": {
     "validateUpsert": true
   },
-  "properties": {},
+  "properties": {
+    "id": {
+      "type": "string",
+      "required": true
+    },
+    "link": {
+      "type": "string",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "advertiserName": {
+      "type": "string",
+      "required": true
+    },
+    "price": {
+      "type": "object"
+    },
+    "catalogId": {
+      "type": "string",
+      "required": true
+    },
+    "imageLink": {
+      "type": "string",
+      "required": true
+    },
+    "categoryName": {
+      "type": "any"
+    }
+  },
   "validations": [],
   "relations": {},
   "acls": [],
