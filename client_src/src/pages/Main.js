@@ -5,6 +5,7 @@ import About from './About.js';
 import Contact from './Contact.js';
 import GetOffer from '../components/GetOffer.js';
 import GetOfferByText from '../components/GetOfferByText.js';
+import GetOfferByUrl from '../components/GetOfferByUrl.js';
 
 
 const Main = () => (
@@ -15,6 +16,7 @@ const Main = () => (
             <Route exact path ="/contact" component ={Contact} />
             <Route exact path = '/offers/:class' component= {GetOffer}/>
             <Route exact path = '/textoffers/:blogtext' component= {GetOfferByText}/>
+            <Route path = '/urloffers/:blogurl' component= {GetOfferByUrl}/>
         </Switch>
 
     </main>

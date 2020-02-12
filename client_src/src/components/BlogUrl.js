@@ -14,8 +14,14 @@ export class BlogUrl extends Component {
     }
     
     handleSubmit(event) {
-        alert('URL: ' + this.state.value);
         event.preventDefault();
+        var theUrl=this.state.value;
+        theUrl=encodeURIComponent(theUrl)
+        window.alert(theUrl)
+        var theLink = "http://localhost:3001/urloffers/";
+        theLink += theUrl;
+        console.log(theLink);
+        window.location.href =theLink;
     }
 
     render() {
