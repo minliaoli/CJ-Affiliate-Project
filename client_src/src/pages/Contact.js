@@ -1,5 +1,6 @@
 import React from 'react';
 import '../css/App.css';
+import MyChart from  '../components/MyChart';
 
 class Contact extends React.Component {
   constructor(props){
@@ -18,7 +19,11 @@ class Contact extends React.Component {
   }
 
   render() {
-    // console.log(this.state.todos)
+    // var divStyle = {
+    //   textalign:"center",
+    //   width:"80%" ,
+    //   height:"600px"
+    // };    
     return (
       <div className="App">
 
@@ -33,43 +38,11 @@ class Contact extends React.Component {
             <img className="mySlides" src="https://media.expedia.com/hotels/3000000/2230000/2228000/2227922/d1f35bf5_b.jpg" alt="custom_html_banner1" style={{width: '90%'}} />
           </div>
           <div className="col-md-6">
-            <h2>TextTextTextText</h2>
+            <MyChart/>
           </div>
         </div>
 
-          <p>
-            <a className="btn btn-success btn-block" data-toggle="collapse" href="#a5e386a4199a3e94b4c3657cf" role="button" aria-expanded="false">
-              Link with href
-            </a>
-          </p>
-
-          <div className="collapse" id="a5e386a4199a3e94b4c3657cf">
-            <textarea readOnly
-              ref={(textarea) => this.textArea = textarea}
-              value="Example copy for the textarea."
-              id="1111"
-              style={{width: '100%'}}
-            />
-            <button className="btn btn-success" onClick={() => this.myFunction("1111")}>Copy text</button>
-          </div>
-
-          <p>
-            <a className="btn btn-success btn-block" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample">
-              Link with href
-            </a>
-          </p>
-
-          <div className="collapse" id="collapseExample2">
-            <textarea readOnly
-              ref={(textarea) => this.textArea = textarea}
-              value="Example 2"
-              id="12223"
-              style={{width: '100%'}}
-
-            />
-            <button className="btn btn-success" onClick={() => this.myFunction("12223")}>Copy text</button>
-          </div>
-        
+          
 
 
       </div>

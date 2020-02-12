@@ -30,7 +30,7 @@ class GetOfferByText extends Component {
         data: {
             labels: ['Sports','Technology','Politics','Cooking','Pets'],
             datasets: [{
-                label: 'trending rate',
+                // label: 'trending rate',
                 data: [12, 19, 3, 5, 3, 3],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
