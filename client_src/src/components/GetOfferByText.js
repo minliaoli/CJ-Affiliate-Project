@@ -69,8 +69,6 @@ class GetOfferByText extends Component {
         let theText=this.props.match.params.blogtext;
 
         var link=`http://localhost:5000/alg/${theText}`;
-
-        //var link=`http://localhost:3000/api/CJOffers?filter={"where":{"or":[{"id":"5e386a4199a3e94b4c3657cf"},{"id":"5e386a4199a3e94b4c3657e3"},{"id":"5e386a4199a3e94b4c366451"},{"id":"5e386a4199a3e94b4c366d3e"},{"id":"5e386a4199a3e94b4c3676e3"}]}}`;
         //var link=`http://localhost:3000/api/CJOffers?filter={"where":{"or":[{"id":"5e3a7d30f125753e48b6c16b"},{"id":"5e3a7cc8f125753e48b6b51b"},{"id":"5e3a7d1bf125753e48b6bdf2"},{"id":"5e3a7d30f125753e48b6c306"},{"id":"5e3b96f86d73459893a3c807"}]}}`;
 
         console.log(`opening ${link}`)
@@ -80,8 +78,7 @@ class GetOfferByText extends Component {
                 {
                     let TheArray=[];
                     for (var i=0;i<response.data.length;i++)
-                        {TheArray.push(response.data[i]); 
-                        console.log(response.data[i])}
+                        {TheArray.push(response.data[i]); }
                     this.setState({details : TheArray })
                 }
             )
@@ -98,8 +95,9 @@ class GetOfferByText extends Component {
             return (
                 <div key={detail.id}>
                     <div className="card"> 
-                    <tr className="table-success"> 
-                    <div class="row">
+                    {/* <tr className="table-success">  */}
+                    <div className="table-success">
+                    <div className="row">
                     <div className="col">
                     <br></br>
                     <strong>Name: </strong> {detail.title} 
@@ -136,7 +134,7 @@ class GetOfferByText extends Component {
                     <br></br>
                     </div>
                     </div>
-                    </tr> 
+                    </div>
                     </div>
                     
                 </div>

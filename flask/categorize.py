@@ -62,7 +62,7 @@ def hard_work():
 def function_a(text):
     # this is the real deal
     scores = categorize(text)
-    f = open("categorized_clean2.json", "r")
+    f = open("categorized_clean2.json", "rb")
     OfferData = json.load(f)
     similarity = []
     ##############Get Trend
