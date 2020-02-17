@@ -1,7 +1,0 @@
-Minliao Li: research on REACT and web app structure
-	write up the basic ideas. SEE: 
-
-https://docs.google.com/document/d/1JSXZaajDS5krAPLlC5mD-4jPGZc2_zR7/edit
-
-updated by zhuo on 10/17.
-
