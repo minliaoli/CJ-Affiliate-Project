@@ -11,7 +11,7 @@ Project overview: A tool matching the best products/offers based on real-time so
 
 
 
-You need python 3, pip, nodejs, flask (maybe), 
+You need python 3, pip, nodejs, flask (maybe), xmltodict
 
 
 # To install
