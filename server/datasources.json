@@ -1,0 +1,13 @@
+{
+  "db": {
+    "host": "localhost",
+    "port": 27017,
+    "url": "mongodb+srv://minliao:Cj123cj123@cluster0-kmbeq.mongodb.net/test?retryWrites=true&w=majority",
+    "database": "db",
+    "password": "",
+    "name": "db",
+    "user": "",
+    "useNewUrlParser": true,
+    "connector": "mongodb"
+  }
+}
