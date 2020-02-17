@@ -112,9 +112,10 @@ def function_a(text, U):
         similarity.append([each, score])
     similarity.sort(key=sortSecond, reverse=True)
     chosen =[]
-    for i in range(0,250):
-        chosen.append(similarity[i*STEP])  ######################STEP 20###########################
-    return chosen
+    for i in range(25):
+        chosen.append(similarity[i*STEP][0])  ######################STEP 20###########################
+    chosen = json.dumps(chosen)
+    return str(chosen)
 
 
 
