@@ -1,6 +1,6 @@
 Team name: Great Fantastic Team
 
-Team members: Joey ZHANG (Lead), Nathan Guan (Scribe), Minliao Li, Zhuo Chen, Kyle Ng
+Team members: Kyle Ng (Lead), Nathan Guan (Scribe), Minliao Li, Zhuo Chen, Joey ZHANG
 
 Trello: https://trello.com/b/rNy18nT7/lets-get-stuff-done
 
