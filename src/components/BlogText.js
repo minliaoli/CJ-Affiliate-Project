@@ -44,14 +44,14 @@ export class BlogText extends Component {
                 <form onSubmit={this.handleSubmit} className="text-center">
                     <div className="form-group">
                         {/* <label htmlFor="exampleFormControlTextarea4">Enter blog text:</label> */}
-
+                        <p id="urlHelp" className="form-text text-muted">The blog must be under 5000 characters!</p>
                         <textarea value={this.state.value} onChange={this.handleChange} 
                         maxLength="5000"
                         className="form-control form-control-lg" 
                         id="exampleFormControlTextarea4" rows="5" 
                         placeholder="Enter blog here"></textarea>
 
-                        <p id="urlHelp" className="form-text text-muted">The blog must be under 5000 characters!</p>
+                        
                         <button type="submit" className="btn btn-success mb-2 btn-lg">submit</button>
                     </div>    
                 </form>
