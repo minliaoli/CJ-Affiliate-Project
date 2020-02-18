@@ -31,11 +31,11 @@ export class BlogUrl extends Component {
                 <br></br>
                 <br></br>
                 <h3 className="text-center">Enter Blog URL</h3>
-                <form onSubmit={this.handleSubmit} className="text-center form-control-lg">
+                <form onSubmit={this.handleSubmit} className="text-center">
                     <div className="form-group">
                         <p id="urlHelp" className="form-text text-muted">The blog might have access protection, if so please use text</p>
                         {/* <label htmlFor="urlInput">Enter URL</label> */}
-                        <input type="url" className="form-control form-control-lg" id="urlInput" aria-describedby="urlHelp" 
+                        <input type="url" className="form-control form-control-lg" id="urlInput" 
                         value={this.state.value} onChange={this.handleChange} placeholder="Enter URL here"/>
                     </div>
                     
