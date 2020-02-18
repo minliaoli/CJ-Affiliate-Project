@@ -28,15 +28,15 @@ export class BlogUrl extends Component {
         return (
             <div>
                 <h3 className="text-center">Enter Blog URL</h3>
-                <form onSubmit={this.handleSubmit} className="text-center">
+                <form onSubmit={this.handleSubmit} className="text-center form-control-lg">
                     <div className="form-group">
                     {/* <label htmlFor="urlInput">Enter URL</label> */}
-                    <input type="url" className="form-control" id="urlInput" aria-describedby="urlHelp" 
+                    <input type="url" className="form-control form-control-lg" id="urlInput" aria-describedby="urlHelp" 
                     value={this.state.value} onChange={this.handleChange} placeholder="Enter URL here"/>
                     <p id="urlHelp" className="form-text text-muted">The blog might have access protection, if so please use text</p>
                     </div>
                     
-                    <button type="submit" className="btn btn-success">Submit</button>
+                    <button type="submit" className="btn btn-success btn-lg">Submit</button>
                 </form>          
             </div>
         )

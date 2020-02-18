@@ -103,9 +103,9 @@ export class BlogTypes extends Component {
 
               <div className="bs-component text-center" style={{marginBottom: '15px'}}>
                 <div className="btn-group" role="group" aria-label="Basic example">
-                  <button type="button" onClick={this.selectAll} className="btn btn-success">Select All</button>
-                  <button type="button" onClick={this.deselectAll} className="btn btn-success">Deselect All</button>
-                  <button type="submit" className="btn btn-success  active">Submit</button>
+                  <button type="button" onClick={this.selectAll} className="btn btn-success btn-lg">Select All</button>
+                  <button type="button" onClick={this.deselectAll} className="btn btn-success btn-lg">Deselect All</button>
+                  <button type="submit" className="btn btn-success btn-lg active">Submit</button>
                 </div>
               </div>
 
