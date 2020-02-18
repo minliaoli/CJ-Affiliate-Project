@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import '../css/App.css';
-import BlogUrl from '../components/BlogUrl';
+import BlogYoutube from '../components/BlogYoutube';
 
 export class EnterYoutube extends Component {
     render() {
         return (
             <div className="App">
                 <div className="card-body">
-                  <BlogUrl />
+                  <BlogYoutube />
                 </div>
             </div>
         )
