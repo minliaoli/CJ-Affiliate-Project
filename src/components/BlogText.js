@@ -37,6 +37,9 @@ export class BlogText extends Component {
     render() {
         return (
             <div>
+                <br></br>
+                <br></br>
+                <br></br>
                 <h3 className="text-center">Enter Blog Text</h3>
                 <form onSubmit={this.handleSubmit} className="text-center">
                     <div className="form-group">

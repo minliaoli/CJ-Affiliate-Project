@@ -21,9 +21,6 @@ export class Header extends Component {
                             <a className="dropdown-item" href="../entertype">Select from keywords</a>
                     </div>
                 </nav>
-                <br></br>
-                <br></br>
-                <br></br>
             </div>
 
         )

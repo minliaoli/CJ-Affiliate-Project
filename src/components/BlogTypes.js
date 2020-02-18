@@ -94,6 +94,8 @@ export class BlogTypes extends Component {
   render() {
     return (
       <div className="container">
+        <br></br>
+        <br></br>
         <h2 className="text-center">Select keywords: </h2>
         <div className="row mt-5">
           <div className="col-sm-12">

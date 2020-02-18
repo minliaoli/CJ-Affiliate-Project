@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import MyChart from "./MyChart"
 
 export class Footer extends Component {
     render() {
@@ -11,6 +12,10 @@ export class Footer extends Component {
             <br></br>
             <br></br>
             <br></br>
+            <hr/>
+            <div className="text-center w-50 p-3 mx-auto">
+                <MyChart/>
+            </div>
             <hr/>
             <br></br>
                 <div>

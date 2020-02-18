@@ -10,7 +10,7 @@ export class MyChart extends Component {
                 labels: ['Sports','Technology','Politics','Cooking','Pets'],
                 datasets: [{
                     // label: 'trending rate',
-                    data: [12, 19, 3, 5, 7],
+                    data: [12, 19, 13, 9, 11],
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',
@@ -33,7 +33,8 @@ export class MyChart extends Component {
             options: {
                 title: {
                     display: true,
-                    text: 'Trending Rate'
+                    text: 'Trending Rate',
+                    fontSize: '25'
                 },
                 legend: {
                     display: false,

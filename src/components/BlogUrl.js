@@ -27,6 +27,9 @@ export class BlogUrl extends Component {
     render() {
         return (
             <div>
+                <br></br>
+                <br></br>
+                <br></br>
                 <h3 className="text-center">Enter Blog URL</h3>
                 <form onSubmit={this.handleSubmit} className="text-center form-control-lg">
                     <div className="form-group">
