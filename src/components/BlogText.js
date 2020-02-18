@@ -36,17 +36,19 @@ export class BlogText extends Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                <div className="form-group">
-                    <label htmlFor="exampleFormControlTextarea4">Enter blog text:</label>
-                    <textarea value={this.state.value} onChange={this.handleChange} 
-                    maxLength="5000"
-                    className="form-control" id="exampleFormControlTextarea4" rows="5" placeholder="Enter blog here"></textarea>
-                    <small id="urlHelp" className="form-text text-muted">The blog must be under 5000 characters!</small>
-                    <br></br>
-                    <button type="submit" className="btn btn-success mb-2">submit</button>
-                </div>    
-            </form>
+            <div>
+                <h3 className="text-center">Enter Blog Text</h3>
+                <form onSubmit={this.handleSubmit} className="text-center">
+                    <div className="form-group">
+                        {/* <label htmlFor="exampleFormControlTextarea4">Enter blog text:</label> */}
+                        <textarea value={this.state.value} onChange={this.handleChange} 
+                        maxLength="5000"
+                        className="form-control" id="exampleFormControlTextarea4" rows="5" placeholder="Enter blog here"></textarea>
+                        <p id="urlHelp" className="form-text text-muted">The blog must be under 5000 characters!</p>
+                        <button type="submit" className="btn btn-success mb-2">submit</button>
+                    </div>    
+                </form>
+            </div>
                
         )
     }

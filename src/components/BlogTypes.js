@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import axios from 'axios';
 import Checkbox from "./Checkbox";
 
 const BTypes = [
@@ -77,7 +76,6 @@ export class BlogTypes extends Component {
               }
           }
       })
-      window.alert(theLink);
       window.location.href =theLink;
     }
   };
@@ -96,13 +94,14 @@ export class BlogTypes extends Component {
   render() {
     return (
       <div className="container">
+        <h2 className="text-center">Select keywords: </h2>
         <div className="row mt-5">
           <div className="col-sm-12">
             <form onSubmit={this.handleFormSubmit} >
               {this.createCheckboxes()}
               <br></br>
 
-              <div className="bs-component" style={{marginBottom: '15px'}}>
+              <div className="bs-component text-center" style={{marginBottom: '15px'}}>
                 <div className="btn-group" role="group" aria-label="Basic example">
                   <button type="button" onClick={this.selectAll} className="btn btn-success">Select All</button>
                   <button type="button" onClick={this.deselectAll} className="btn btn-success">Deselect All</button>

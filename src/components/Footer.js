@@ -3,11 +3,21 @@ import React, { Component } from 'react'
 export class Footer extends Component {
     render() {
         return (
-            <footer>
+            <footer className="text-center">
             <br></br>
             <br></br>
             <br></br>
             <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <hr/>
+            <br></br>
+                <div>
+                    <p>
+                        <a href="../contact" className="text-success">Contact</a> | <a href="../about" className="text-success">About</a> | <a href="../about" className="text-success">How to use</a>
+                    </p>
+                </div>
                 <p>CJ Affiliate & The Great Fantastic Team, Copyright &copy; , 2019 </p>
             </footer>
         )

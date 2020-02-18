@@ -26,16 +26,19 @@ export class BlogUrl extends Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                <div className="form-group">
-                <label htmlFor="urlInput">Enter URL</label>
-                <input type="url" className="form-control" id="urlInput" aria-describedby="urlHelp" 
-                value={this.state.value} onChange={this.handleChange} placeholder="Enter URL here"/>
-                <small id="urlHelp" className="form-text text-muted">The blog might have access protection, if so please use text</small>
-                </div>
-                
-                <button type="submit" className="btn btn-success">Submit</button>
-            </form>
+            <div>
+                <h3 className="text-center">Enter Blog URL</h3>
+                <form onSubmit={this.handleSubmit} className="text-center">
+                    <div className="form-group">
+                    {/* <label htmlFor="urlInput">Enter URL</label> */}
+                    <input type="url" className="form-control" id="urlInput" aria-describedby="urlHelp" 
+                    value={this.state.value} onChange={this.handleChange} placeholder="Enter URL here"/>
+                    <p id="urlHelp" className="form-text text-muted">The blog might have access protection, if so please use text</p>
+                    </div>
+                    
+                    <button type="submit" className="btn btn-success">Submit</button>
+                </form>          
+            </div>
         )
     }
 }
