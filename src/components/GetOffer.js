@@ -52,12 +52,12 @@ render() {
         var href4="aa"+(detail.id);
         var idHtml="b"+(detail.id);
         return (
-            <div key={detail.id}>
+            <div className="card-body" key={detail.id}>
                 <div className="card"> 
                 {/* <tr className="table-success">  */}
                 <div className="table-success">
-                <div className="row">
-                <div className="col">
+                <div className="row ml-md-auto">
+                <div className="col ml-md-auto">
                 <br></br>
                 <strong>Name: </strong> {detail.title} 
                     <br></br>

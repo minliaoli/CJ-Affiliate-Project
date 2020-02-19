@@ -30,7 +30,7 @@ export class BlogYoutube extends Component {
                 <br></br>
                 <br></br>
                 <br></br>
-                <h3 className="text-center">Enter <a href="https://www.youtube.com/" target="blank"><img src="../youTube.png" href="../" alt="Youtube" width={90} height={90}/></a> URL</h3>
+                <h3 className="text-center">Enter <a href="https://www.youtube.com/" target="blank"><img src="../youTube.png" href="../" alt="Youtube" width={120} height={120}/></a> URL</h3>
                 <form onSubmit={this.handleSubmit} className="text-center">
                     <div className="form-group">
                         {/* <p id="urlHelp" className="form-text text-muted">The blog might have access protection, if so please use text</p> */}

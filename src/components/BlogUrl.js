@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { FaRegQuestionCircle } from "react-icons/fa";
 
 export class BlogUrl extends Component {
     constructor(props) {
@@ -30,10 +31,12 @@ export class BlogUrl extends Component {
                 <br></br>
                 <br></br>
                 <br></br>
-                <h3 className="text-center">Enter Blog URL</h3>
+                <h3 className="text-center">
+                    Enter Blog URL <FaRegQuestionCircle size={20} className="disabled" data-toggle="tooltip" data-placement="top" title="The blog might have access protection, if so please use text!"/>
+                </h3>
                 <form onSubmit={this.handleSubmit} className="text-center">
                     <div className="form-group">
-                        <p id="urlHelp" className="form-text text-muted">The blog might have access protection, if so please use text</p>
+                        {/* <p id="urlHelp" className="form-text text-muted">The blog might have access protection, if so please use text</p> */}
                         {/* <label htmlFor="urlInput">Enter URL</label> */}
                         <input type="url" className="form-control form-control-lg" id="urlInput" 
                         value={this.state.value} onChange={this.handleChange} placeholder="Enter URL here"/>

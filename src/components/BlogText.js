@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { FaRegQuestionCircle } from "react-icons/fa";
 
 export class BlogText extends Component {
     constructor(props) {
@@ -33,25 +34,27 @@ export class BlogText extends Component {
         // alert('Blog Text: ' + this.state.value);
     };
 
-
+    disableStyle={"pointer-events" : "none"};
     render() {
         return (
             <div>
                 <br></br>
                 <br></br>
                 <br></br>
-                <h3 className="text-center">Enter Blog Text</h3>
+                <h3 className="text-center">
+                    Enter Blog Text <FaRegQuestionCircle size={20} className="disabled" data-toggle="tooltip" data-placement="top" title="The blog must be under 5000 characters!"/>
+                </h3>
+                
                 <form onSubmit={this.handleSubmit} className="text-center">
                     <div className="form-group">
                         {/* <label htmlFor="exampleFormControlTextarea4">Enter blog text:</label> */}
-                        <p id="urlHelp" className="form-text text-muted">The blog must be under 5000 characters!</p>
+                        {/* <p id="urlHelp" className="form-text text-muted">The blog must be under 5000 characters!</p> */}
                         <textarea value={this.state.value} onChange={this.handleChange} 
                         maxLength="5000"
                         className="form-control form-control-lg" 
                         id="exampleFormControlTextarea4" rows="5" 
                         placeholder="Enter blog here"></textarea>
-
-                        
+                        <br></br>
                         <button type="submit" className="btn btn-success mb-2 btn-lg">submit</button>
                     </div>    
                 </form>

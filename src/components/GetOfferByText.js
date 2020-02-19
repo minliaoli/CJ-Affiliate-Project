@@ -52,12 +52,12 @@ class GetOfferByText extends Component {
             var href4="aa"+(detail.id);
             var idHtml="b"+(detail.id);
             return (
-                <div key={detail.id}>
+                <div className= "card-body" key={detail.id}>
                     <div className="card"> 
                     {/* <tr className="table-success">  */}
                     <div className="table-success">
-                    <div className="row">
-                    <div className="col">
+                    <div className="row ml-md-auto">
+                    <div className="col ml-md-auto">
                     <br></br>
                     <strong>Name: </strong> {detail.title} 
                         <br></br>
@@ -77,7 +77,7 @@ class GetOfferByText extends Component {
                         <br></br>
                         <br></br>
 
-                        <div className="collapse" id={href4}>
+                        <div className="collapse card-title" id={href4}>
                             <strong>Detail: </strong>{detail.description}
                             <br></br>
                         </div>
@@ -118,9 +118,12 @@ class GetOfferByText extends Component {
                 </div>
                 
                 <br></br>
-                <ul className="collection">
+                <div className="card">
                     {MyOffers}
-                </ul>
+                </div>
+                {/* <ul className="collection">
+                    {MyOffers}
+                </ul> */}
             </div>
         )
     }
