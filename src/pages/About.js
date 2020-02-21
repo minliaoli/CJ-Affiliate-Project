@@ -25,7 +25,12 @@ class About extends React.Component {
         {!this.state.done ? (
            <Loading/>
         ) : (
+          <div>
+          <div className="alert alert-success" role="alert">
+            This is a success alert—check it out!
+          </div>
           <h1>hello world</h1>
+          </div>
         )}
       </div>
 

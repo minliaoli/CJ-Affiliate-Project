@@ -63,6 +63,7 @@ class GetOfferByText extends Component {
                         <br></br>
                     <strong>Advertiser Name: </strong>{detail.advertiserName} 
                         <br></br>
+                        <br></br>
                         <div className="btn-group">
                         <a className="btn btn-outline-success" data-toggle="collapse" href={href3} role="button" aria-expanded="false" aria-controls="collapseExample">
                         View Detail
@@ -85,10 +86,10 @@ class GetOfferByText extends Component {
                         <div className="collapse" id={href2}>
                             <textarea readOnly
                             ref={(textarea) => this.textArea = textarea}
-                            value={detail.link}
+                            value={`<a href="${detail.link}" target="blank"><img src="${detail.imageLink}" title="AD from Offer Matcher" alt="AD Pic"></a><br><br/><small>Advertisement provided by the Offer Matcher and CJ Affiliate.</small>`}
                             id={idHtml}
-                            style={{width: '100%'}}
-
+                            rows="6"
+                            style={{width: '100%' , height: '100%'}}
                             />
                             <button className="btn btn-outline-success" onClick={() => this.myFunction(idHtml)}>Copy Link</button>
                         </div>
@@ -111,7 +112,9 @@ class GetOfferByText extends Component {
         return (
             <div>
                 <br></br>
-                <Link className="btn-lg btn-success" to="/"> Back</Link>
+                <div className="sticky-top text-right pr-4" >
+                    <Link className="btn-lg btn-success" to="/"> Back</Link>
+                </div>
                 <div className="text-center">
                     {/* <Link className="btn-lg btn-success" to="/"> Back</Link> */}
                     <h2>{this.props.match.params.class} Offers:</h2>

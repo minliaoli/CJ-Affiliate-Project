@@ -3452,7 +3452,8 @@ input[type="button"].btn-block {
   width: 100%;
   padding: 0.25rem 1.5rem;
   clear: both;
-  font-weight: 400;
+  font-weight: 500;
+  font-size: 1.3rem;
   color: #212529;
   text-align: inherit;
   white-space: nowrap;
@@ -3461,7 +3462,7 @@ input[type="button"].btn-block {
 }
 
 .dropdown-item:hover, .dropdown-item:focus {
-  color: #16181b;
+  color: #1d9e53;
   text-decoration: none;
   background-color: #f8f9fa;
 }
@@ -3469,7 +3470,7 @@ input[type="button"].btn-block {
 .dropdown-item.active, .dropdown-item:active {
   color: #fff;
   text-decoration: none;
-  background-color: #E95420;
+  background-color: #1d9e53;
 }
 
 .dropdown-item.disabled, .dropdown-item:disabled {
@@ -4443,7 +4444,7 @@ input[type="button"].btn-block {
   padding-top: 0.3125rem;
   padding-bottom: 0.3125rem;
   margin-right: 1rem;
-  font-size: 1.7rem;
+  font-size: 2.5rem;
   line-height: inherit;
   white-space: nowrap;
 }

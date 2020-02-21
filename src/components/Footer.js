@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import MyChart from "./MyChart"
+// import MyChart from "./MyChart"
 
 export class Footer extends Component {
     render() {
@@ -13,13 +13,14 @@ export class Footer extends Component {
             <br></br>
             <br></br>
             <hr/>
-            <div className="text-center w-50 p-3 mx-auto">
+            {/* <div className="text-center w-50 p-3 mx-auto">
                 <MyChart/>
-            </div>
+            </div> */}
             <hr/>
             <br></br>
                 <div>
                     <p>
+                        <p>Version 1.0.0</p> 
                         <a href="../contact" className="text-success">Contact</a> | <a href="../about" className="text-success">About</a> | <a href="../about" className="text-success">How to use</a>
                     </p>
                 </div>

@@ -5,9 +5,9 @@ export class Header extends Component {
         return (
             <div>
                 <nav className="navbar navbar-dark bg-success color-green">
-                    <img src="../new-cj-logo-icon.svg" href="../" alt="CJ Affiliate Logo" width={70} height={70} />
+                    <img src="../new-cj-logo-icon.svg" href="../" alt="CJ Affiliate Logo" width={90} height={90} />
                     
-                    <a className="navbar-brand" href="../">CJ-Affiliate Bloggers' Tool</a>
+                    <a className="navbar-brand" href="../">Offer Matcher</a>
 
                     <button className="navbar-toggler" id="navbarDropdownMenuLink" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span className="navbar-toggler-icon"></span>
