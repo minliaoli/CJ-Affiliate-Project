@@ -23,7 +23,8 @@ trendweight["Business"] = 1
 trendweight["Technology"] = 1
 trendweight["Society"] = 1
 trendweight["Computers"] = 1
-STEP = 20
+STEP1 = 2
+STEP2 = 10
 STEPRandomness = 0  # defines how variated the steps will be.
 FIRST = 1
 SECOND = 0.8
@@ -112,8 +113,10 @@ def function_a(text, U):
         similarity.append([each, score])
     similarity.sort(key=sortSecond, reverse=True)
     chosen =[]
-    for i in range(25):
-        chosen.append(similarity[i*STEP][0])  ######################STEP 20###########################
+    for i in range(5):
+        chosen.append(similarity[i*STEP1][0])  ######################STEP 20###########################
+    for i in range(5, 10):
+        chosen.append(similarity[i*STEP2][0])
     chosen = json.dumps(chosen)
     return str(chosen)
 
