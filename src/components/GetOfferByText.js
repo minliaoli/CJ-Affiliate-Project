@@ -6,20 +6,22 @@ class GetOfferByText extends Component {
     constructor(props){
         super();
         this.state={
-            details:[]
+            details:[],
+            alert:false
         }
+        this.getCopy  = this.getCopy.bind(this); 
     }
     componentDidMount(){
         this.getOffers();
     }
-    myFunction(idN) {
+    getCopy(idN) {
         let me=document.getElementById(idN)
         console.log(me)
         // let copyText = this.textArea;
         me.select();
         me.setSelectionRange(0, 99999); 
         document.execCommand("copy");
-        alert(`AD Link Copied!`);
+        this.setState({alert:true})
       }
     getOffers(){
       ///get offer part
@@ -91,7 +93,7 @@ class GetOfferByText extends Component {
                             rows="6"
                             style={{width: '100%' , height: '100%'}}
                             />
-                            <button className="btn btn-outline-success" onClick={() => this.myFunction(idHtml)}>Copy Link</button>
+                            <button className="btn btn-outline-success" onClick={() => this.getCopy(idHtml)}>Copy Link</button>
                         </div>
                         <br></br>
                     </div>
@@ -108,15 +110,20 @@ class GetOfferByText extends Component {
                 </div>
             )
         })
-
+        let myAlert = null;
+        if (this.state.alert) {
+            myAlert = <div className="alert alert-success sticky-top" role="alert">
+            Your offer has been successfully copied!
+        </div>;
+        } 
         return (
             <div>
+                {myAlert}
                 <br></br>
-                <div className="sticky-top text-right pr-4" >
+                <div className="sticky-top text-right pr-4 pt-2" >
                     <Link className="btn-lg btn-success" to="/"> Back</Link>
                 </div>
                 <div className="text-center">
-                    {/* <Link className="btn-lg btn-success" to="/"> Back</Link> */}
                     <h2>{this.props.match.params.class} Offers:</h2>
                 </div>
                 
@@ -124,9 +131,6 @@ class GetOfferByText extends Component {
                 <div className="card">
                     {MyOffers}
                 </div>
-                {/* <ul className="collection">
-                    {MyOffers}
-                </ul> */}
             </div>
         )
     }
