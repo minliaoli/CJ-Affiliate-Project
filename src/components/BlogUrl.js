@@ -17,12 +17,17 @@ export class BlogUrl extends Component {
     handleSubmit(event) {
         event.preventDefault();
         var theUrl=this.state.value;
-        theUrl=encodeURIComponent(theUrl)
-        // window.alert(theUrl)
-        var theLink = "http://localhost:3000/urloffers/";
-        theLink += theUrl;
-        console.log(theLink);
-        window.location.href =theLink;
+        if(0===theUrl.length){
+            window.alert("Please enter a URL!");
+        }
+        else{
+            theUrl=encodeURIComponent(theUrl)
+            // window.alert(theUrl)
+            var theLink = "http://localhost:3000/urloffers/";
+            theLink += theUrl;
+            console.log(theLink);
+            window.location.href =theLink;
+        }
     }
 
     render() {
