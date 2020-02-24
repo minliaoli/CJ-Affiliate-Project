@@ -20,7 +20,7 @@ export class Footer extends Component {
             <br></br>
                 <div>
                     <p>
-                        <p>Version 1.0.0</p> 
+                        Version 1.0.0<br></br>
                         <a href="../contact" className="text-success">Contact</a> | <a href="../about" className="text-success">About</a> | <a href="../about" className="text-success">How to use</a>
                     </p>
                 </div>

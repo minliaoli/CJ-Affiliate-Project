@@ -109,7 +109,11 @@ render() {
                 
             </div>
         )
-    })
+    }
+
+    
+    
+    )
     let myAlert = null;
     if (this.state.alert) {
         myAlert = <div className="alert alert-success sticky-top" role="alert">

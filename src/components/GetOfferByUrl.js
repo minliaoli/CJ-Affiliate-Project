@@ -36,6 +36,7 @@ class GetOfferByUrl extends Component {
         axios.get(link)
         .then(response => 
                 {
+                    // console.log(typeof(response.data[0]))
                     let TheArray=[];
                     for (var i=0;i<response.data.length;i++)
                         {TheArray.push(response.data[i]); }
@@ -117,6 +118,27 @@ class GetOfferByUrl extends Component {
             Your offer has been successfully copied!
         </div>;
         } 
+        if("object"!==typeof(this.state.details[0])){
+            console.log(this.state.details)
+            if(this.state.details[0]==="0"){
+                return(<div className="pt-5">
+                <br></br>
+                <br></br>
+                <br></br>
+                <h3 className="text text-center">Unfortunately, this youtube video is not recognizable, please try another.</h3>
+                </div>)      
+            }
+            else{
+                return(<div className="pt-5">
+                <br></br>
+                <br></br>
+                <br></br>
+                <h2 className="text-success text-center">404</h2>
+                <h3 className="text text-center">Please check your input</h3>
+                </div>)      
+            }
+                  
+        }
         return (
             <div>
                 {myAlert}
