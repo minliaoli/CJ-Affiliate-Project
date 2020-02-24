@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
+import Loading from  './Loading';
 
 class GetOfferByText extends Component {
     constructor(props){
@@ -47,6 +48,10 @@ class GetOfferByText extends Component {
         var maxStyle = {
             maxHeight : 200
           };
+        if("object"!==typeof(this.state.details[0])){
+            return(<div className="pt-5">
+            <Loading/></div>)
+        }
         const MyOffers = this.state.details.map((detail) => {
             var href1="#a"+(detail.id);
             var href2="a"+(detail.id);

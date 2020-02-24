@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
+import Loading from  './Loading';
 
 class GetOfferByUrl extends Component {
     constructor(props){
@@ -119,24 +120,32 @@ class GetOfferByUrl extends Component {
         </div>;
         } 
         if("object"!==typeof(this.state.details[0])){
-            console.log(this.state.details)
             if(this.state.details[0]==="0"){
                 return(<div className="pt-5">
                 <br></br>
                 <br></br>
                 <br></br>
                 <h3 className="text text-center">Unfortunately, this youtube video is not recognizable, please try another.</h3>
-                </div>)      
+                </div>)   
             }
             else{
                 return(<div className="pt-5">
+                <Loading/>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
                 <br></br>
                 <br></br>
                 <br></br>
                 <h2 className="text-success text-center">404</h2>
                 <h3 className="text text-center">Please check your input</h3>
-                </div>)      
-            }
+                </div>)
+            }      
                   
         }
         return (
