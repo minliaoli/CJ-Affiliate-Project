@@ -220,7 +220,7 @@ def categorize(text):
     #################
     #tag selection rule:
     #select 3 tags with highests scores
-    text=text.encode("ascii","ignore")
+    # text=text.encode("ascii","ignore")
     response = requests.post('https://api.uclassify.com/v1/uclassify/Topics/classify', \
                              data="{\"texts\": [\"%s\"]}" % (text), \
                              headers={'Authorization': 'Token ' + "QFlcgwbjS2P9"})
