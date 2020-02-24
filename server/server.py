@@ -5,6 +5,7 @@ import json
 import urllib.parse
 from youtube_transcript_api import YouTubeTranscriptApi
 import random
+import re
 
 
 app = Flask(__name__)
@@ -55,12 +56,14 @@ def runAlg(inputData):
 
 def youtubeTranscript(youtubeURL):
     video_id = youtubeURL[32:]
-    transcript = YouTubeTranscriptApi.get_transcript(video_id)
+    transcript = YouTubeTranscriptApi.get_transcript(video_id,languages=['de', 'en', 'en-GB'])
     raw = ""
     for x in transcript:
         if "[" not in x['text']: #gets rid of [Music], [Applause], etc....
             raw += x['text'] + " "
 
+    regex = re.compile('[^A-Za-z0-9]')
+    raw=regex.sub(' ', raw)
     print ("_________________")
     print (raw)
     print ("_________________")
