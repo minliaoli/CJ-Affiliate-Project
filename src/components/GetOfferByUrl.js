@@ -122,10 +122,26 @@ class GetOfferByUrl extends Component {
         if("object"!==typeof(this.state.details[0])){
             if(this.state.details[0]==="0"){
                 return(<div className="pt-5">
+                <div className="sticky-top text-right pr-4 pt-2" >
+                    <Link className="btn-lg btn-success" to="/"> Back</Link>
+                </div>
                 <br></br>
                 <br></br>
                 <br></br>
                 <h3 className="text text-center">Unfortunately, this youtube video is not recognizable, please try another.</h3>
+                </div>)   
+            }
+            else if(this.state.details[0]==="1"){
+                return(<div className="pt-5">
+                <div className="sticky-top text-right pr-4 pt-2" >
+                    <Link className="btn-lg btn-success" to="/"> Back</Link>
+                </div>
+
+                <br></br>
+                <br></br>
+                <br></br>
+                <h2 className="text-success text-center">404</h2>
+                <h3 className="text text-center">Please check your input</h3>
                 </div>)   
             }
             else{
@@ -142,10 +158,8 @@ class GetOfferByUrl extends Component {
                 <br></br>
                 <br></br>
                 <br></br>
-                <h2 className="text-success text-center">404</h2>
-                <h3 className="text text-center">Please check your input</h3>
                 </div>)
-            }      
+            }
                   
         }
         return (
