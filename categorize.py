@@ -78,10 +78,20 @@ def parse_trend(trends):
             trendweight2[eachCat[0]] += eachCat[1]*each[1]
     for eachone in trendweight2:
         trendweight[eachone] += trendweight2[eachone]/50
-    print  trendweight
+    return trendweight
 
+def store_trendWeight(weight):
+    with open("trendwight.txt","w") as f:
+        for each in weight:
+            f.write(each+","+str(weight[each])+"\n")
 
-
+def load_weight():
+    with open("trendwight.txt","r") as f:
+        data = f.readlines()
+        for each in data:
+            each = each.split(",")
+            each[1] = float(each[1])
+            trendweight[each[0]]=each[1]
 
 def hard_work():
     f = open("categorized_clean.json", "r")
@@ -281,8 +291,10 @@ Examining individual seller performance in every board meeting or deck is a terr
     readsports = "The world of racing is an exhilarating and daring place that has the ability to captivate and move the hearts of millions of viewers. Ever since the first cars were invented, men were trying to make them go faster and be better than any other car they would face. In today’s modern age of renewable energy and seemingly infinite technology, there are 5 pivotal ways that racing is changing that may even have an impact on out everyday lives. New Cars To no surprise, race cars are able to take technology being used in everyday life to make their cars go faster. The very first racing cars were little more than a massive engine and tub for the driver to sit in that were bulky, slow, and incredibly dangerous. Even as recently as the 90s, racing cars were still somewhat basic and lacked something to make them unique to road cars. With todays’ modern era of racing trying to bring the real world to the track, we see all kinds of new cars that are revolutionizing the racing world. Formula E is a new series of racing in which all of the cars are gully electric and every race is almost silent. The idea of Formula E is to use the racing world to inspire companies and consumers to see that electric cars can be just as, if not more fun than gasoline powered cars. Formula 1 ha seven made leaps and bounds with their technology that has resulted in incredibly efficient and eco-friendly engines that are being used to help develop greener road cars. However, one new type of car is setting out to completely change everything about racing as we know it today. In 2019, the first Roborace took place in which fully autonomous and electric vehicles used advanced artificial intelligence to race each other without a single person having to control the car. This opens up the world to new racing where the cars themselves are able to race each other without any humans and even allows for the future potential of a full lineup of drivers to race each other without needing to get in the car. Improved Tires As the cars get faster and need more grip to make tight turns, the tires they run on are often more important than how powerful the engine is. Cars from the past used little more than bicycle tires to race at high speeds and often meant that the cars were unstable and dangerous. Newer and larger tires that have remained relatively unchanged since the 50s’ have been seeing slight improvements every year to help keep up with the increasing speeds of the cars. Tire manufacturers like Giti Tire have been working with race teams for many years and have been able to help develop the modern racing tires used today that are designed to handle extreme temperatures and ensure that the cars they support make it to the finish line. The improved compounds used in race tires are actually used to help and improve road tires so that standard road cars don’t require as many tire changes and are able to take more of a beating than older and more fragile tires. Improved Safety When many people think of fast paced races, one of the first things that comes to their mind is the unfortunate history of racing accidents that have occurred over the years. The early days of motorsports saw the unfortunate deaths of many racing drivers and even spectators at races where there was little focus on safety and more of a focus on going fast. Early racing drivers wore t shirts and leather helmets which did little to nothing in the event of a crash and many chose not to wear seatbelts so in the event of an inevitable crash, they could get out of the car. Many will remember the more recent loss of the legendary Ayrton Senna who was a famed Brazilian racing driver who was on his way to being one of the greatest racing drivers of all time until a fatal accident on track took his life. After his death, racing became a much safer and less deadly environment for all. New crash systems, harnesses, and helmet technologies have all helped to save countless lives for what should have been fatal crashes. Safety is now a fundamental part of racing and has seen its way onto road cars to try and translate safety on the track to safety on the roads. Exciting New Teams The increasingly connected world that has come together as a result of the internet means that more people than ever before have been exposed to racing. New exposure means new opportunities for people who would have never before been exposed to what the racing world has to offer. One exciting example it the Giti Tire Angels. Unlike the old days when every racetrack and car was filled with men doing everything from driving to putting on wheels, a new generation has brough in the entirely female team of the Angels. The Giti Angels have every operation and task being undertaken by a woman and have created a buzz with their rookie year performance being incredibly promising. Greener races A new awareness and appreciation for caring about the planet and environment has ushered in a new wave of cars and general life that has even brought many changes to racing. Racing used to be about who can make the biggest engine, but now it’s all about who can make the greenest and most efficient engines. Even the ways that cars are moved, and races are held is changing with the introduction of carbon-neutral policies from the F1 organization who needs to move cars all over the world and wants to reduce its footprint. Conclusion From more diverse teams to teams that don’t even have drivers, racing has an exciting future and will help drive the car industry forward with new features helping to save and improve lives everywhere."
     urltest = "https://docs.python.org/2/library/csv.html"
     #categorizeUrl(urltest)
-    trends = trendy.get_trends()
-    parse_trend(trends)
+    # trends = trendy.get_trends()
+    # wights = parse_trend(trends)
+    # store_trendWeight(wights)
+    load_weight()
     list = function_a(urltest,1)
     for i in range (0,20):
         print (list[i])
