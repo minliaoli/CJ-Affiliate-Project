@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Fade from 'react-reveal/Fade';
 
 export class BlogYoutube extends Component {
     constructor(props) {
@@ -26,6 +27,7 @@ export class BlogYoutube extends Component {
 
     render() {
         return (
+            <Fade>
             <div>
                 <br></br>
                 <br></br>
@@ -41,6 +43,7 @@ export class BlogYoutube extends Component {
                     <button type="submit" className="btn btn-success btn-lg">Submit</button>
                 </form>          
             </div>
+            </Fade>
         )
     }
 }

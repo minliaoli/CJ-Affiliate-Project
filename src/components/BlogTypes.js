@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Checkbox from "./Checkbox";
+import Fade from 'react-reveal/Fade';
 
 const BTypes = [
     'Sports','Technology','Politics','Cooking','Pets', 'Education', 'Travelling',
@@ -93,6 +94,7 @@ export class BlogTypes extends Component {
 
   render() {
     return (
+      <Fade>
       <div className="container">
         <br></br>
         <br></br>
@@ -115,6 +117,7 @@ export class BlogTypes extends Component {
           </div>
         </div>
       </div>
+      </Fade>
     );
   }
 }

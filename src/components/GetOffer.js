@@ -2,14 +2,18 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 import Loading from  './Loading';
+import Fade from 'react-reveal/Fade';
 
 class GetOffer extends Component {constructor(props){
     super();
     this.state={
         details:[],
-        alert:false
+        alert:false,
+        trending:false
     }
     this.getCopy  = this.getCopy.bind(this); 
+    this.getTrend  = this.getTrend.bind(this); 
+    this.getOffers = this.getOffers.bind(this); 
 }
 componentDidMount(){
     this.getOffers();
@@ -22,17 +26,14 @@ getCopy(idN) {
     me.setSelectionRange(0, 99999); 
     document.execCommand("copy");
     this.setState({alert:true})
-  }
-getOffers(){
-  ///get offer part
+}
+getTrend(){
+    this.setState({details:[]})
     let theTypes=this.props.match.params.class;
-    // window.alert(theUrl)
-
+    theTypes="sports is my favorite stuff!!!!"
+    // change here!!!!!!!!!!!!!!!!!!!!!!!!!!!
     var link=`http://localhost:5000/alg/${theTypes}`;
-    //var link=`http://localhost:3000/api/CJOffers?filter={"where":{"or":[{"id":"5e3a7d30f125753e48b6c16b"},{"id":"5e3a7cc8f125753e48b6b51b"},{"id":"5e3a7d1bf125753e48b6bdf2"},{"id":"5e3a7d30f125753e48b6c306"},{"id":"5e3b96f86d73459893a3c807"}]}}`;
-
     console.log(`opening ${link}`)
-   
     axios.get(link)
     .then(response => 
             {
@@ -43,6 +44,24 @@ getOffers(){
             }
         )
     .catch(err => console.log(err));
+    this.setState({trending : true })
+}
+getOffers(){
+    this.setState({details:[]})
+    let theTypes=this.props.match.params.class;
+    var link=`http://localhost:5000/alg/${theTypes}`;
+    console.log(`opening ${link}`)
+    axios.get(link)
+    .then(response => 
+            {
+                let TheArray=[];
+                for (var i=0;i<response.data.length;i++)
+                    {TheArray.push(response.data[i]); }
+                this.setState({details : TheArray })
+            }
+        )
+    .catch(err => console.log(err));
+    this.setState({trending : false })
 }
 render() {
     var maxStyle = {
@@ -59,6 +78,7 @@ render() {
         var href4="aa"+(detail.id);
         var idHtml="b"+(detail.id);
         return (
+            <Fade>
             <div className="card-body" key={detail.id}>
                 <div className="card"> 
                 {/* <tr className="table-success">  */}
@@ -113,6 +133,7 @@ render() {
                 </div>
                 
             </div>
+            </Fade>
         )
     }
 
@@ -130,7 +151,11 @@ render() {
             {myAlert}
             <br></br>
                 <div className="sticky-top text-right pr-4 pt-2" >
-                    <Link className="btn-lg btn-success" to="/"> Back</Link>
+                        <Link type="button" className="btn btn btn-success" to="/entertype"> Back</Link>
+                        {!this.state.trending ? (
+                        <button type="buttons" className="btn btn btn-outline-success" onClick={() => this.getTrend()}> Add Trend to Offer</button>
+                        ) : (<button type="buttons" className="btn btn btn-outline-success" onClick={() => this.getOffers()}> Remove Trend from Offer</button>
+                        )}
                 </div>
             <div className="text-center">
                 <h2> Offers:</h2>

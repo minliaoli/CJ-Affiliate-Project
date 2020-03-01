@@ -1,7 +1,8 @@
 import React from 'react';
 import '../css/App.css';
 import Loading from  '../components/Loading';
-import { CSSTransition } from 'react-transition-group';
+import Fade from 'react-reveal/Fade';
+
 class About extends React.Component {
   constructor(props) {
     super(props);
@@ -27,17 +28,11 @@ class About extends React.Component {
   render() {
     return (
       <div className="App text-center">
+        <Fade>
+          <img  src="../youTube.png" href="../" alt="Youtube" width={120} height={120} />
+        </Fade>
 
 
-        <CSSTransition
-        in={this.state.done}
-        appear={true}
-        timeout={600}
-        classNames="fade"
-        >
-          <img src="https://cdn2.jianshu.io/assets/default_avatar/4-3397163ecdb3855a0a4139c34a695885.jpg" alt="nane"/>
-        
-        </CSSTransition>
         
       <div>
         {!this.state.done ? (

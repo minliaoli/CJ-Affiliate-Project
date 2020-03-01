@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { FaRegQuestionCircle } from "react-icons/fa";
+import Fade from 'react-reveal/Fade';
 
 export class BlogText extends Component {
     constructor(props) {
@@ -37,6 +38,7 @@ export class BlogText extends Component {
     disableStyle={"pointer-events" : "none"};
     render() {
         return (
+            <Fade>
             <div>
                 <br></br>
                 <br></br>
@@ -59,6 +61,7 @@ export class BlogText extends Component {
                     </div>    
                 </form>
             </div>
+            </Fade>
                
         )
     }

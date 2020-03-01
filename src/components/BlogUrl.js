@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { FaRegQuestionCircle } from "react-icons/fa";
+import Fade from 'react-reveal/Fade';
 
 export class BlogUrl extends Component {
     constructor(props) {
@@ -32,6 +33,7 @@ export class BlogUrl extends Component {
 
     render() {
         return (
+            <Fade>
             <div>
                 <br></br>
                 <br></br>
@@ -50,6 +52,7 @@ export class BlogUrl extends Component {
                     <button type="submit" className="btn btn-success btn-lg">Submit</button>
                 </form>          
             </div>
+            </Fade>
         )
     }
 }
