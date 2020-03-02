@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import MyChart from "./MyChart"
+import CurrentTrend from './CurrentTrend';
 
 export class Footer extends Component {
     render() {
@@ -13,9 +13,13 @@ export class Footer extends Component {
             <br></br>
             <br></br>
             <hr/>
-            {/* <div className="text-center w-50 p-3 mx-auto">
-                <MyChart/>
-            </div> */}
+            <a className="btn btn-outline-success btn-block" data-toggle="collapse" href="#trending" role="button" aria-expanded="false" aria-controls="collapseExample">
+                Current Trend
+            </a>
+            <div className="collapse" id="trending">
+                <CurrentTrend/>
+            </div>
+
             <hr/>
             <br></br>
                 <div>

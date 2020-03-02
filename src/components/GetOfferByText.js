@@ -21,8 +21,6 @@ class GetOfferByText extends Component {
     }
     getCopy(idN) {
         let me=document.getElementById(idN)
-        console.log(me)
-        // let copyText = this.textArea;
         me.select();
         me.setSelectionRange(0, 99999); 
         document.execCommand("copy");
@@ -150,8 +148,8 @@ class GetOfferByText extends Component {
                 <div className="sticky-top text-right pr-4 pt-2" >
                         <Link type="button" className="btn btn btn-success" to="/entertype"> Back</Link>
                         {!this.state.trending ? (
-                        <button type="buttons" className="btn btn btn-outline-success" onClick={() => this.getTrend()}> Add Trend to Offer</button>
-                        ) : (<button type="buttons" className="btn btn btn-outline-success" onClick={() => this.getOffers()}> Remove Trend from Offer</button>
+                        <button type="buttons" className="btn btn btn-outline-success" onClick={() => this.getTrend()}> Add Current Trend</button>
+                        ) : (<button type="buttons" className="btn btn btn-outline-success" onClick={() => this.getOffers()}> Remove Current Trend</button>
                         )}
                 </div>
                 <div className="text-center">

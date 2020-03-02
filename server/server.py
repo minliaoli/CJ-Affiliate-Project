@@ -20,6 +20,20 @@ def testAlg():
     keywords = ["sports", "trash", "electronics"]
     return keywords[random.randint(0, 2)]
 
+@app.route('/trendrate')
+def trendrate():  
+    try:
+        return categorize.return_current_trendweight()
+    except BaseException:
+        return '"104"'
+
+@app.route('/trendwords')
+def trendwords():  
+    try:
+        return categorize.return_pop_keywords()
+    except BaseException:
+        return '"105"'
+
 #The route to handle URLs
 @app.route('/url/<path:urlStr>', methods=['GET'])
 def url(urlStr):
@@ -68,6 +82,8 @@ def runAlg(inputData):
         
     else: 
         print("Not working??????")
+
+
 
 def youtubeTranscript(youtubeURL):
     video_id = youtubeURL[32:]

@@ -1,11 +1,13 @@
 import React from 'react';
 import '../css/App.css';
-import MyChart from  '../components/MyChart';
+import { FaRegQuestionCircle } from "react-icons/fa";
+import CurrentTrend from '../components/CurrentTrend';
 
 class Contact extends React.Component {
   constructor(props){
     super();
     this.myFunction = this.myFunction.bind(this);
+    this.hoverHandler = this.hoverHandler.bind(this);
   }
 
   myFunction(idN) {
@@ -17,6 +19,9 @@ class Contact extends React.Component {
     document.execCommand("copy");
     alert(`AD Link Copied! ${me}`);
   }
+  hoverHandler(){
+
+  }
 
   render() {
     // var divStyle = {
@@ -26,6 +31,9 @@ class Contact extends React.Component {
     // };    
     return (
       <div className="App">
+        <h3 className="text-center">
+    Enter Blog Text <FaRegQuestionCircle size={20} onMouseEnter={this.hoverHandler()} />
+        </h3>
 
         <section id = "App-selection">
           <div className="App-container">
@@ -33,14 +41,7 @@ class Contact extends React.Component {
           </div>
         </section>
 
-        <div className="modal-body row">
-          <div className="col-md-6">
-            <img className="mySlides" src="https://media.expedia.com/hotels/3000000/2230000/2228000/2227922/d1f35bf5_b.jpg" alt="custom_html_banner1" style={{width: '90%'}} />
-          </div>
-          <div className="col-md-6">
-            <MyChart/>
-          </div>
-        </div>
+        <CurrentTrend/>
 
           
 
