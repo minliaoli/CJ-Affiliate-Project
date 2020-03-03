@@ -29,7 +29,7 @@ export class CurrentTrend extends Component {
     render() {
         const wordList=this.state.trendList.map((word) => {
             return (
-            <li key={word} className="list-group-item">
+            <li key={word} className="list-group-item py-1">
                 {word}
             </li>
                 );

@@ -30,9 +30,7 @@ class GetOffer extends Component {
     getTrend(){
         this.setState({details:[]})
         let theTypes=this.props.match.params.class;
-        theTypes="sports is my favorite stuff!!!!"
-        // change here!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        var link=`http://localhost:5000/alg/${theTypes}`;
+        var link=`http://localhost:5000/algt/${theTypes}`;
         console.log(`opening ${link}`)
         axios.get(link)
         .then(response => 
@@ -153,8 +151,12 @@ class GetOffer extends Component {
                     <div className="sticky-top text-right pr-4 pt-2" >
                             <Link type="button" className="btn btn btn-success" to="/entertype"> Back</Link>
                             {!this.state.trending ? (
-                            <button type="buttons" className="btn btn btn-outline-success" onClick={() => this.getTrend()}> Add Current Trend</button>
-                            ) : (<button type="buttons" className="btn btn btn-outline-success" onClick={() => this.getOffers()}> Remove Current Trend</button>
+                            <button type="buttons" className="btn btn btn-outline-success" data-toggle="tooltip" data-placement="bottom" title="Add trending topics to your offers!" onClick={() => this.getTrend()}> 
+                            Add Current Trend
+                            </button>
+                            ) : (<button type="buttons" className="btn btn btn-outline-success" data-toggle="tooltip" data-placement="bottom" title="Remove trending topics from your offers!" onClick={() => this.getOffers()}> 
+                            Remove Current Trend
+                            </button>
                             )}
                     </div>
                 <div className="text-center">

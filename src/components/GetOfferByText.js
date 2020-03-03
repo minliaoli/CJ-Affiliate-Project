@@ -29,9 +29,7 @@ class GetOfferByText extends Component {
     getTrend(){
         this.setState({details:[]})
         let theText=this.props.match.params.blogtext;
-        theText="sports is my favorite stuff!!!!"
-        // change here!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        var link=`http://localhost:5000/alg/${theText}`;
+        var link=`http://localhost:5000/algt/${theText}`;
         console.log(`opening ${link}`)
         axios.get(link)
         .then(response => 
@@ -77,7 +75,7 @@ class GetOfferByText extends Component {
             var href4="aa"+(detail.id);
             var idHtml="b"+(detail.id);
             return (
-                <Fade>
+                <Fade key={detail.id}>
                 <div className= "card-body" key={detail.id}>
                     <div className="card"> 
                     {/* <tr className="table-success">  */}
@@ -146,10 +144,14 @@ class GetOfferByText extends Component {
                 {myAlert}
                 <br></br>
                 <div className="sticky-top text-right pr-4 pt-2" >
-                        <Link type="button" className="btn btn btn-success" to="/entertype"> Back</Link>
+                        <Link type="button" className="btn btn btn-success" to="/entertext"> Back</Link>
                         {!this.state.trending ? (
-                        <button type="buttons" className="btn btn btn-outline-success" onClick={() => this.getTrend()}> Add Current Trend</button>
-                        ) : (<button type="buttons" className="btn btn btn-outline-success" onClick={() => this.getOffers()}> Remove Current Trend</button>
+                        <button type="buttons" className="btn btn btn-outline-success" data-toggle="tooltip" data-placement="bottom" title="Add trending topics to your offers!" onClick={() => this.getTrend()}> 
+                        Add Current Trend
+                        </button>
+                        ) : (<button type="buttons" className="btn btn btn-outline-success" data-toggle="tooltip" data-placement="bottom" title="Remove trending topics from your offers!" onClick={() => this.getOffers()}> 
+                        Remove Current Trend
+                        </button>
                         )}
                 </div>
                 <div className="text-center">
