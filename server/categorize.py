@@ -102,6 +102,7 @@ def load_weight():
 def return_current_trendweight():
     data = trendweight
     reset_trend()
+    load_weight()
     return data
 
 def return_pop_keywords():
