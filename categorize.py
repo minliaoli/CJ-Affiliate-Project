@@ -105,9 +105,11 @@ def hard_work():
     f2.close()
 
 
-def function_a(text, U):
+def function_a(text, U,T):
     # this is the real deal
     # U ==1 means the imput is an URL
+    if T ==1:
+        load_weight()
     if U ==1:
         scores = categorizeUrl(text)
     else:
