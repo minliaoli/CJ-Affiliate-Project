@@ -33,6 +33,18 @@ SECOND = 0.8
 THIRD = 0.55
 trendMaxDis= 0.8  #defines the maximum any trendweight can be pushed
 
+def reset_trend():
+    trendweight["Fashion"] = 1
+    trendweight["Recreation"] = 1
+    trendweight["Sports"] = 1
+    trendweight["Games"] = 1
+    trendweight["Health"] = 1
+    trendweight["Home"] = 1
+    trendweight["Business"] = 1
+    trendweight["Technology"] = 1
+    trendweight["Society"] = 1
+    trendweight["Computers"] = 1
+
 
 def sortSecond(val):
     a = list(val)
@@ -89,7 +101,9 @@ def load_weight():
 
 def return_current_trendweight():
     load_weight()
-    return trendweight
+    data = trendweight
+    reset_trend()
+    return data
 
 def return_pop_keywords():
     data = trendy.get_trends()
@@ -108,8 +122,11 @@ def hard_work():
 def function_a(text, U,T):
     # this is the real deal
     # U ==1 means the imput is an URL
+    trend_scrambller()
+    print(trendweight)
     if T ==1:
         load_weight()
+        print(trendweight)
     if U ==1:
         scores = categorizeUrl(text)
     else:
@@ -304,9 +321,9 @@ Examining individual seller performance in every board meeting or deck is a terr
     urltest = "https://docs.python.org/2/library/csv.html"
     #categorizeUrl(urltest)
     #generate_trend_weight_sheet()
-    load_weight()
+    #load_weight()
     return_current_trendweight()
     return_pop_keywords()
-    list = function_a(urltest,1)
+    list = function_a(urltest,1,1)
     for i in range (0,20):
         print (list[i])
