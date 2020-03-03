@@ -123,10 +123,8 @@ def function_a(text, U,T):
     # this is the real deal
     # U ==1 means the imput is an URL
     trend_scrambller()
-    print(trendweight)
     if T ==1:
         load_weight()
-        print(trendweight)
     if U ==1:
         scores = categorizeUrl(text)
     else:
