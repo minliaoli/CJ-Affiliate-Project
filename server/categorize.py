@@ -100,9 +100,11 @@ def load_weight():
             trendweight[each[0]]=each[1]
 
 def return_current_trendweight():
-    data = trendweight
-    reset_trend()
     load_weight()
+    data={}
+    for each in trendweight:
+        data[each]=trendweight[each]
+    reset_trend()
     return data
 
 def return_pop_keywords():
@@ -128,10 +130,8 @@ def hard_work():
 def function_a(text, U, T):
     reset_trend()
     trend_scrambller()
-    print(trendweight)
     if T ==1:
         load_weight()
-        print(trendweight)
     if U ==1:
         scores = categorizeUrl(text)
     else:
@@ -309,10 +309,9 @@ def generate_trend_weight_sheet():
 if __name__ == "__main__":
     urltest = "https://docs.python.org/2/library/csv.html"
     #categorizeUrl(urltest)
-    generate_trend_weight_sheet()
-    load_weight()
-    return_current_trendweight()
-    return_pop_keywords()
-    # list = function_a(urltest,1,1)
+    list = function_a(urltest,1,1)
+    print(trend_weight)
+    function_a(urltest,1,0)
+    print(trend_weight)
     # for i in range (0,20):
     #     print (list[i])
