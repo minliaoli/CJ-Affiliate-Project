@@ -261,23 +261,23 @@ def function_d(text,U):
                 trendweight[each['categoryName2']]*SECOND+\
                 trendweight[each['categoryName3']]*THIRD
         if list(scores[0])[0] == each['categoryName1']:
-            score += list(scores[0])[1] * FIRST*0.5
+            score += list(scores[0])[1] * FIRST
         if list(scores[1])[0] == each['categoryName1']:
-            score += list(scores[1])[1] * FIRST*0.5
+            score += list(scores[1])[1] * FIRST
         if list(scores[2])[0] == each['categoryName1']:
-            score += list(scores[2])[1] * FIRST*0.5
+            score += list(scores[2])[1] * FIRST
         if list(scores[0])[0] == each['categoryName2']:
-            score += list(scores[0])[1] * SECOND*0.5
+            score += list(scores[0])[1] * SECOND
         if list(scores[1])[0] == each['categoryName2']:
-            score += list(scores[1])[1] * SECOND*0.5
+            score += list(scores[1])[1] * SECOND
         if list(scores[2])[0] == each['categoryName2']:
-            score += list(scores[2])[1] * SECOND*0.5
+            score += list(scores[2])[1] * SECOND
         if list(scores[0])[0] == each['categoryName3']:
-            score += list(scores[0])[1] * THIRD*0.5
+            score += list(scores[0])[1] * THIRD
         if list(scores[1])[0] == each['categoryName3']:
-            score += list(scores[1])[1] * THIRD*0.5
+            score += list(scores[1])[1] * THIRD
         if list(scores[2])[0] == each['categoryName3']:
-            score += list(scores[2])[1] * THIRD*0.5
+            score += list(scores[2])[1] * THIRD
         similarity.append([each, score])
     similarity.sort(key=sortSecond, reverse=True)
     chosen = []
