@@ -131,7 +131,6 @@ def hard_work():
 # T==1 means to use trend
 def function_a(text, U, T):
     reset_trend()
-    trend_scrambller()
     if T ==1:
         load_weight()
     if U ==1:
@@ -248,18 +247,37 @@ def function_c(text):
     return chosen
 
 
-def function_d():
+def function_d(text,U):
+    load_weight()
+    if U ==1:
+        scores = categorizeUrl(text)
+    else:
+        scores = categorize(text)
     f = io.open("categorized_clean2.json", mode="r", encoding="utf-8")
     OfferData = json.load(f)
     similarity = []
-    ##############Get Trend
-    ##############Parse Trend
-    ############## Trend weight
-    trend_scrambller()
     for each in OfferData["products"]:
         score = trendweight[each['categoryName1']]*FIRST+\
                 trendweight[each['categoryName2']]*SECOND+\
                 trendweight[each['categoryName3']]*THIRD
+        if list(scores[0])[0] == each['categoryName1']:
+            score += list(scores[0])[1] * FIRST*0.5
+        if list(scores[1])[0] == each['categoryName1']:
+            score += list(scores[1])[1] * FIRST*0.5
+        if list(scores[2])[0] == each['categoryName1']:
+            score += list(scores[2])[1] * FIRST*0.5
+        if list(scores[0])[0] == each['categoryName2']:
+            score += list(scores[0])[1] * SECOND*0.5
+        if list(scores[1])[0] == each['categoryName2']:
+            score += list(scores[1])[1] * SECOND*0.5
+        if list(scores[2])[0] == each['categoryName2']:
+            score += list(scores[2])[1] * SECOND*0.5
+        if list(scores[0])[0] == each['categoryName3']:
+            score += list(scores[0])[1] * THIRD*0.5
+        if list(scores[1])[0] == each['categoryName3']:
+            score += list(scores[1])[1] * THIRD*0.5
+        if list(scores[2])[0] == each['categoryName3']:
+            score += list(scores[2])[1] * THIRD*0.5
         similarity.append([each, score])
     similarity.sort(key=sortSecond, reverse=True)
     chosen = []
@@ -335,8 +353,8 @@ if __name__ == "__main__":
     # store_trendWeight(trendweight)
     urltest = "https://docs.python.org/2/library/csv.html"
     #categorizeUrl(urltest)
-    listing = function_a(urltest,1,1)
+    listing = function_a(urltest,1,0)
     print(trend_weight)
     print (listing)
-    list2 = function_d()
+    list2 = function_d(urltest,1)
     print(list2)
