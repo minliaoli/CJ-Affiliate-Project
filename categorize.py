@@ -143,7 +143,7 @@ def function_a(text, U, T):
     ##############Get Trend
     ##############Parse Trend
     ############## Trend weight
-    trend_scrambller()
+    #trend_scrambller()
     for each in OfferData["products"]:
         score = 0
         if list(scores[0])[0] == each['categoryName1']:
