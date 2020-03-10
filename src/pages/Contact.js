@@ -1,6 +1,6 @@
 import React from 'react';
 import '../css/App.css';
-import { FaRegQuestionCircle } from "react-icons/fa";
+import { AiOutlineFire } from "react-icons/ai";
 import CurrentTrend from '../components/CurrentTrend';
 
 class Contact extends React.Component {
@@ -32,7 +32,7 @@ class Contact extends React.Component {
     return (
       <div className="App">
         <h3 className="text-center">
-    Enter Blog Text <FaRegQuestionCircle size={20} onMouseEnter={this.hoverHandler()} />
+    Enter Blog Text <AiOutlineFire size={20} color="red" />
         </h3>
 
         <section id = "App-selection">

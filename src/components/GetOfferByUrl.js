@@ -9,11 +9,9 @@ class GetOfferByUrl extends Component {
         super();
         this.state={
             details:[],
-            alert:false,
-            trending:false
+            alert:false
         }
         this.getCopy  = this.getCopy.bind(this); 
-        this.getTrend  = this.getTrend.bind(this); 
         this.getOffers = this.getOffers.bind(this); 
     }
     componentDidMount(){
@@ -26,23 +24,6 @@ class GetOfferByUrl extends Component {
         me.setSelectionRange(0, 99999); 
         document.execCommand("copy");
         this.setState({alert:true})
-    }
-    getTrend(){
-        this.setState({details:[]})
-        let theUrl=this.props.match.params.blogurl;
-        var link=`http://localhost:5000/urlt/${theUrl}`;
-        console.log(`opening ${link}`)
-        axios.get(link)
-        .then(response => 
-                {
-                    let TheArray=[];
-                    for (var i=0;i<response.data.length;i++)
-                        {TheArray.push(response.data[i]); }
-                    this.setState({details : TheArray })
-                }
-            )
-        .catch(err => console.log(err));
-        this.setState({trending : true })
     }
     getOffers(){
         this.setState({details:[]})
@@ -59,7 +40,6 @@ class GetOfferByUrl extends Component {
                 }
             )
         .catch(err => console.log(err));
-        this.setState({trending : false })
     }
     render() {
         var maxStyle = {
@@ -107,7 +87,7 @@ class GetOfferByUrl extends Component {
                         <div className="collapse" id={href2}>
                             <textarea readOnly
                             ref={(textarea) => this.textArea = textarea}
-                            value={`<a href="${detail.link}" target="blank"><img src="${detail.imageLink}" title="AD from Offer Matcher" alt="AD Pic"></a><br><br/><small>Advertisement provided by the Offer Matcher and CJ Affiliate.</small>`}
+                            value={`<a href="${detail.link}" target="blank"><img src="${detail.imageLink}" height="170"  title="AD from Offer Matcher" alt="AD Pic"></a><br><br/><small>Advertisement provided by the Offer Matcher and CJ Affiliate.</small>`}
                             id={idHtml}
                             rows="6"
                             style={{width: '100%' , height: '100%'}}
@@ -185,14 +165,6 @@ class GetOfferByUrl extends Component {
                 <br></br>
                 <div className="sticky-top text-right pr-4 pt-2" >
                         <Link type="button" className="btn btn btn-success" to="/enterurl"> Back</Link>
-                        {!this.state.trending ? (
-                        <button type="buttons" className="btn btn btn-outline-success" data-toggle="tooltip" data-placement="bottom" title="Add trending topics to your offers!" onClick={() => this.getTrend()}> 
-                        Add Current Trend
-                        </button>
-                        ) : (<button type="buttons" className="btn btn btn-outline-success" data-toggle="tooltip" data-placement="bottom" title="Remove trending topics from your offers!" onClick={() => this.getOffers()}> 
-                        Remove Current Trend
-                        </button>
-                        )}
                 </div>
                 <div className="text-center">
                     <h2>{this.props.match.params.class} Offers:</h2>
